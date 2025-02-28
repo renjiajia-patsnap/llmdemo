@@ -6,6 +6,12 @@ import logging
 import time
 import hmac
 import hashlib
+from dotenv import load_dotenv
+from typing import Optional
+import os
+
+load_dotenv()
+
 
 def send_alert(secret: str, webhook: str, content: str,msgtype: str = 'markdown') -> None:
     timestamp = str(round(time.time() * 1000))
@@ -20,6 +26,7 @@ def send_alert(secret: str, webhook: str, content: str,msgtype: str = 'markdown'
     data = {
         "msgtype": msgtype,
         "markdown": {
+            "title": "用例统计",
             "text": content
         }
     }
@@ -28,8 +35,8 @@ def send_alert(secret: str, webhook: str, content: str,msgtype: str = 'markdown'
         logging.error(f"Failed to send alert: {response.text}")
 
 if __name__ == '__main__':
-    secret = 'SECcbc9a1341b1e1116e15a4fdae35a2363dbe247b4685b8307cc073d3a7a66dc5e'
-    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=b587ce9ea14a5ddc58cb687896655f32e789651ecda8d0276229f372788cb9b8'
+    secret = os.getenv('dd_secret')
+    webhook = os.getenv('dd_webhook')
     msgtype = 'markdown'
     # 从data/casecount.md文件中读取内容发送到钉钉
     with open('data/casecount.md', 'r', encoding='utf-8') as f:
