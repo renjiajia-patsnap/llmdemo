@@ -8,15 +8,21 @@ import requests
 import logging
 from functools import wraps
 from utils.ddtalk import send_alert
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+token = os.getenv('tmp_token')
 
 # 全局请求头
 HEADERS = {
     'Accept': 'application/json, text/plain, */*',
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-    'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZGRlYmJmNmY1ZjA5Y2EzYTk1YTdiYTViOWQzYWIyZCIsImF1dGhvcml0aWVzIjpbXSwiaXNzIjoidGVzdF9tYW5hZ2VfcGxhdGZvcm0iLCJpYXQiOjE3NDA0NTI4NjUsImV4cCI6MTc0MzA0NDg2NX0.hRRHSPx313P15DToZEGtTp6kafxaCgT3GXK8AKTL_jqK-Gy4XCVTHuitnLMTs68ApZjpS0N3FXv7J63TKcXnyg',
+    'Authorization': f'Bearer {token}',
     'Connection': 'keep-alive',
     'Content-Type': 'application/json',
     'Origin': 'https://tmp.patsnap.info',
@@ -158,8 +164,8 @@ def get_product_id(product_name, refresh=False):
 
 if __name__ == '__main__':
     product_name = 'DMP'
-    secret = 'SECcbc9a1341b1e1116e15a4fdae35a2363dbe247b4685b8307cc073d3a7a66dc5e'
-    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=b587ce9ea14a5ddc58cb687896655f32e789651ecda8d0276229f372788cb9b8'
+    secret = os.getenv('dd_secret')
+    webhook = os.getenv('dd_webhook')
     all_cases_count = product_case_count(product_name)
     # 将all_cases_count生成markdown表格
     with open('data/casecount.md', 'w', encoding='utf-8') as f:

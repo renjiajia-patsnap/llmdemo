@@ -7,7 +7,6 @@ import time
 import hmac
 import hashlib
 from dotenv import load_dotenv
-from typing import Optional
 import os
 
 load_dotenv()
