@@ -1,0 +1,250 @@
+{
+  "update_time": 1740713049.9572868,
+  "API": {
+    "created_by": "renjiajia",
+    "created_at": 1735179508032,
+    "updated_by": "renjiajia",
+    "updated_at": 1735179523419,
+    "version": 2,
+    "dict_id": "1aa20ac493b44b498d1f08e5e6dcbe61",
+    "dict_type": "PRODUCT",
+    "dict_name": "Openapi",
+    "short_name": "API",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false
+  },
+  "EUREKA": {
+    "created_by": "discoveryls",
+    "created_at": 1734517383208,
+    "updated_by": "discoveryls",
+    "updated_at": 1734517414056,
+    "version": 1,
+    "dict_id": "305213d4111e46328b66f32944165b19",
+    "dict_type": "PRODUCT",
+    "dict_name": "Eureka",
+    "short_name": "EUREKA",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": true
+  },
+  "SNPD": {
+    "created_by": "discoveryls",
+    "created_at": 1713768904009,
+    "updated_by": "guyong",
+    "updated_at": 1720686283395,
+    "version": 2,
+    "dict_id": "517a10971d7a448d89b14f5f60c9affb",
+    "dict_type": "PRODUCT",
+    "dict_name": "Synaspe Data",
+    "short_name": "SNPD",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": true,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=2c9dc3b09a1fb584c11a327bdad1d256bbd7524da3c80811eddb18a01e9e91fb",
+    "ding_talk_web_hook_sign": "1SEC07f944176606119cc4ff92aff299b0752ad7846604eb8c98f055c365071bcdb4",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=2c9dc3b09a1fb584c11a327bdad1d256bbd7524da3c80811eddb18a01e9e91fb",
+    "testing_ding_talk_web_hook_sign": "SEC07f944176606119cc4ff92aff299b0752ad7846604eb8c98f055c365071bcdb4"
+  },
+  "COM": {
+    "created_by": "guyong",
+    "created_at": 1700824014683,
+    "version": 1,
+    "dict_id": "7692bb87001442188c75a0f40cef3994",
+    "dict_type": "PRODUCT",
+    "dict_name": "Common",
+    "short_name": "COM",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "deleted": false,
+    "is_leaf": false
+  },
+  "DIS": {
+    "created_by": "zhangtianlu",
+    "created_at": 1673334776303,
+    "updated_by": "renjiajia",
+    "updated_at": 1700791851737,
+    "version": 11,
+    "dict_id": "284e8876730340f68d67f8a98c74a675",
+    "dict_type": "PRODUCT",
+    "dict_name": "Discovery Plus",
+    "short_name": "DIS",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=c99e76aedb86846ef013e30d85a410025d73a1db260246aa3e48df6e8e669ffa",
+    "ding_talk_web_hook_sign": "SECbc97acef34f07fab7c1ce087c54c2e034c70c52f47fc708f729987b0611c5367",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=7c19dc40d6884525643d928c0adc0cde359e0f484513344aae39fddd7a980ab8",
+    "testing_ding_talk_web_hook_sign": "SEC154f3d1fd7e3a880c910f15069a51f48d9f6c5ffef9b5fafd9405c7e256fa839"
+  },
+  "TFFI": {
+    "created_by": "zhangtianlu",
+    "created_at": 1671004023284,
+    "updated_by": "litiancui",
+    "updated_at": 1701511288442,
+    "version": 7,
+    "dict_id": "88cab1e3d3e84342a62cc4c5737caaaa",
+    "dict_type": "PRODUCT",
+    "dict_name": "TFFI",
+    "short_name": "TFFI",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=a05b2278b3c18b2855313a15340761bcdf87817b103ac3ee31509bddcf78e88c",
+    "ding_talk_web_hook_sign": "SECfb05b926ddc16148ad7531e040a46f5fc213bdc544bc7803d1a197041e2fc713",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=7c19dc40d6884525643d928c0adc0cde359e0f484513344aae39fddd7a980ab8",
+    "testing_ding_talk_web_hook_sign": "SEC154f3d1fd7e3a880c910f15069a51f48d9f6c5ffef9b5fafd9405c7e256fa839"
+  },
+  "Discovery": {
+    "created_by": "discoveryls",
+    "created_at": 1662708138393,
+    "updated_by": "litiancui",
+    "updated_at": 1699605495738,
+    "version": 10,
+    "dict_id": "f2922dabe9034c879c39bccc0ab38e2b",
+    "dict_type": "PRODUCT",
+    "dict_name": "Discovery",
+    "short_name": "Discovery",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "Discovery",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=4c5cf93a752e2fabe7edf936acde19e94acbb1656ee2d1cc9057a86677a94563",
+    "ding_talk_web_hook_sign": "SECfe6c7b57ede84f813063a4057b75f72a6792c0484fe6cfa398033d065de9efed",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=4c5cf93a752e2fabe7edf936acde19e94acbb1656ee2d1cc9057a86677a94563",
+    "testing_ding_talk_web_hook_sign": "SECfe6c7b57ede84f813063a4057b75f72a6792c0484fe6cfa398033d065de9efed"
+  },
+  "CAS": {
+    "created_by": "zhangtianlu",
+    "created_at": 1662707428160,
+    "updated_by": "wumeng",
+    "updated_at": 1683525689432,
+    "version": 3,
+    "dict_id": "6ac8f9d2677a49f3a8de273723b6f99c",
+    "dict_type": "PRODUCT",
+    "dict_name": "CAS 2.0",
+    "short_name": "CAS",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=05e4f3ce72561f7b3080ebf82e4e13eb370dba1991b50f371b42478d2cad6ef2",
+    "ding_talk_web_hook_sign": "SEC5f70cbebabf730aaaa24df0917a3835cf39281ce97ed45005745b3b0d6278f9b"
+  },
+  "CHE": {
+    "created_by": "discoveryls",
+    "created_at": 1662427312827,
+    "updated_by": "discoveryls",
+    "updated_at": 1727438546762,
+    "version": 24,
+    "dict_id": "723a146cec304b928916b0b29e2ae9e4",
+    "dict_type": "PRODUCT",
+    "dict_name": "Chemical",
+    "short_name": "CHE",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=0bfd6610e39f2fbc9fc71d111f12b3eeafdeb2214d4d9f217abc4801b250a5fa",
+    "ding_talk_web_hook_sign": "SEC0746a8b3267efd3015832206969ba711ca9bb1d24095e66f9e31d1402fafd53d",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=1d9e8dae99d81d66a957406a872fe7b5e231353095ceea1f876ad6a60dbbc227",
+    "testing_ding_talk_web_hook_sign": "SECb579da2d0adf5133ceb7988d8c93154f72ebbb0d12c0f1ee194da90bddc24315"
+  },
+  "BIO": {
+    "created_by": "discoveryls",
+    "created_at": 1662427242732,
+    "updated_by": "wumeng",
+    "updated_at": 1738991860073,
+    "version": 68,
+    "dict_id": "d6d5b318f3c94249b1275ad28f06fe3f",
+    "dict_type": "PRODUCT",
+    "dict_name": "Bio",
+    "short_name": "BIO",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=0bfd6610e39f2fbc9fc71d111f12b3eeafdeb2214d4d9f217abc4801b250a5fa",
+    "ding_talk_web_hook_sign": "SEC0746a8b3267efd3015832206969ba711ca9bb1d24095e66f9e31d1402fafd53d",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=1d9e8dae99d81d66a957406a872fe7b5e231353095ceea1f876ad6a60dbbc227",
+    "testing_ding_talk_web_hook_sign": "SECb579da2d0adf5133ceb7988d8c93154f72ebbb0d12c0f1ee194da90bddc24315"
+  },
+  "SNP": {
+    "created_by": "discoveryls",
+    "created_at": 1653554322367,
+    "updated_by": "guyong",
+    "updated_at": 1737539123670,
+    "version": 74,
+    "dict_id": "fe51b982e11f4454a132f185ab0bc3cc",
+    "dict_type": "PRODUCT",
+    "dict_name": "Synapse",
+    "short_name": "SNP",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "Synapse\n\n[SNP] \u5927\u7fa4\nhttps://oapi.dingtalk.com/robot/send?access_token=9e9c46e8cfef48e7f64c1379055b9d3b6c8a85fba318292b8447e9111079e910\nSEC7fa67236f860ff985b4a0f6cf6bf796b2406a7f6976b91136dfb125e2f26c423\n\n[\u8c03\u8bd5]\nhttps://oapi.dingtalk.com/robot/send?access_token=2b47f781208c8247723d56b7c6bf4ff2c0392e6908847d3fbf91c82fd5c64b77\nSECdb2c55d5377c0711675e3b93eeed55b9c03fdcd3665fb87de2eaa97efe7b2a99\n",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=9e9c46e8cfef48e7f64c1379055b9d3b6c8a85fba318292b8447e9111079e910",
+    "ding_talk_web_hook_sign": "SEC7fa67236f860ff985b4a0f6cf6bf796b2406a7f6976b91136dfb125e2f26c423",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=2c9dc3b09a1fb584c11a327bdad1d256bbd7524da3c80811eddb18a01e9e91fb",
+    "testing_ding_talk_web_hook_sign": "SEC07f944176606119cc4ff92aff299b0752ad7846604eb8c98f055c365071bcdb4"
+  },
+  "DMP": {
+    "created_by": "discoveryls",
+    "created_at": 1653551213623,
+    "updated_by": "discoveryls",
+    "updated_at": 1727438539115,
+    "version": 10,
+    "dict_id": "2c00f8a45cb8471dafc30c208eb0e6c0",
+    "dict_type": "PRODUCT",
+    "dict_name": "Data Management Platform",
+    "short_name": "DMP",
+    "parent_id": "-1",
+    "ancestor_id": [
+      "-1"
+    ],
+    "comment": "Data Platform Management",
+    "deleted": false,
+    "is_leaf": false,
+    "ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=9e9c46e8cfef48e7f64c1379055b9d3b6c8a85fba318292b8447e9111079e910",
+    "ding_talk_web_hook_sign": "SEC7fa67236f860ff985b4a0f6cf6bf796b2406a7f6976b91136dfb125e2f26c423",
+    "testing_ding_talk_web_hook": "https://oapi.dingtalk.com/robot/send?access_token=e521aea0ad817e7366e5fed87ac5eeea68810e88899be45e9cae9f05a144af8f",
+    "testing_ding_talk_web_hook_sign": "SEC4cd32a0d1e57ea32b63c3d2d2b7c4b507ffe0e6004a521d025d8428c04099175"
+  }
+}

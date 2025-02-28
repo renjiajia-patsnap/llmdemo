@@ -1,0 +1,536 @@
+2025-02-21 15:04:34,288 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 15:04:46,218 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查询专利延期业务中延长类型为PTE的专利，并返回专利id及其关联的药物ID",\n  "tables": ["ads_phs_patent_extension"]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 505, 'prompt_tokens': 1303, 'total_tokens': 1808, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 448, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-abdf1ac6-2ff0-4b88-892c-1da1e19ab40d-0' usage_metadata={'input_tokens': 1303, 'output_tokens': 505, 'total_tokens': 1808, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 448}}
+2025-02-21 15:04:46,226 - utils.logger - INFO - User Intent: 查询专利延期业务中延长类型为PTE的专利，并返回专利id及其关联的药物ID
+2025-02-21 15:04:46,226 - utils.logger - INFO - Related Tables: ['ads_phs_patent_extension']
+2025-02-21 15:04:46,228 - utils.logger - INFO - Structure for table ads_phs_patent_extension retrieved: 表名：ads_phs_patent_extension
+表结构：CREATE TABLE `ads_phs_patent_extension` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `extension_id` varchar(64) NOT NULL COMMENT '专利延期id',
+  `extension_apno` varchar(64) NOT NULL COMMENT 'spc/us_pte/us_pte_app/jp_pte,jp的apno号',
+  `applicant` text DEFAULT NULL COMMENT '申请机构名称',
+  `authority_country` varchar(64) DEFAULT NULL COMMENT '受理国家',
+  `authority_region_id` varchar(64) DEFAULT NULL COMMENT '申请国家 对应的region_id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `product` json DEFAULT NULL COMMENT 'product文本',
+  `indication` text DEFAULT NULL COMMENT '特定用途',
+  `extension_status` json DEFAULT NULL COMMENT '延期状态',
+  `maximum_expiry_date` varchar(32) DEFAULT NULL COMMENT '最晚到期日',
+  `extension_time` json DEFAULT NULL COMMENT '授予的延长时间',
+  `filing_date` varchar(64) DEFAULT NULL COMMENT 'spc申请日期',
+  `in_force_date` varchar(32) DEFAULT NULL COMMENT '授予延长/补偿的生效日',
+  `actual_expiry_date` varchar(32) DEFAULT NULL COMMENT '实际到期日',
+  `invalid_date` varchar(32) DEFAULT NULL COMMENT '延长失效日期',
+  `lapsed_date` varchar(32) DEFAULT NULL COMMENT '延长终止日',
+  `granted_date` varchar(32) DEFAULT NULL COMMENT '延长授权日',
+  `refused_date` varchar(32) DEFAULT NULL COMMENT '延长驳回日',
+  `revoked_date` varchar(32) DEFAULT NULL COMMENT '延长撤销日',
+  `ped` int(1) DEFAULT NULL COMMENT ' 是否儿科实验的6个月延长',
+  `url` varchar(255) DEFAULT NULL COMMENT '详情页地址',
+  `pdf_url` json DEFAULT NULL COMMENT '爬取的pdf的s3地址',
+  `extension_type` varchar(32) DEFAULT NULL COMMENT '数据来源',
+  `inpadoc_number` varchar(64) DEFAULT NULL COMMENT 'inpadoc_number',
+  `ped_expiry_date` varchar(32) DEFAULT NULL COMMENT 'ped 过期时间',
+  `ped_status` json DEFAULT NULL COMMENT 'ped 状态',
+  `ped_filling_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_granted_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_refused_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长驳回日',
+  `ped_revoked_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长撤销日',
+  `authorization_des` json DEFAULT NULL COMMENT '药物批准号和获批日期',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`patent_id`,`extension_id`) /*T![clustered_index] CLUSTERED */,
+  KEY `idx_extension_id` (`extension_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利延期业务表'
+示例数据：[{'extension_status': '["LAPSED"]', 'drug_id': '["836b5d60fa984b3fa4af638bf0fdf9d0"]', 'authorization_des': '[{"authorization_date": "20090515", "authorization_number": "EU/1/09/522"}]', 'extension_apno': 'spc', 'ped': '0', 'created_ts': '1733223672000', 'authority_country': 'AT', 'data_status': 'ACTIVE', 'extension_id': '18/2009', 'updated_ts': '1733223672000', 'patent_id': '0000bd07-b6b3-44fc-9b4c-951686a701aa', 'product': '[{"lang": "AT", "name": "ULIPRISTAL-ACETAT"}]', 'maximum_expiry_date': '20140623', 'extension_type': 'SPC'}]
+2025-02-21 15:05:10,941 - utils.logger - INFO - Generated SQL Response: content="SELECT patent_id, drug_id\nFROM ads_phs_patent_extension\nWHERE extension_type = 'PTE'\nORDER BY created_ts DESC\nLIMIT 5;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1835, 'prompt_tokens': 1278, 'total_tokens': 3113, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1792, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-6b337bfd-d545-467d-b6fc-e6572dff9176-0' usage_metadata={'input_tokens': 1278, 'output_tokens': 1835, 'total_tokens': 3113, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1792}}
+2025-02-21 15:05:10,942 - utils.logger - INFO - Generated SQL: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:05:10,944 - utils.logger - INFO - Executing query: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:05:24,656 - utils.logger - INFO - Summarized Result: content='下面是整理后的数据库查询结果，方便查看各记录的详细信息：\n\n1. Patent ID: 4a5b054b-0778-47fa-85fc-8b531719f8e1  \n   Drug ID: 无\n\n2. Patent ID: 1e0750e7-6805-45f7-8d8e-fb54eeff6164  \n   Drug ID: 无\n\n3. Patent ID: 40c4fa3f-a40d-49ba-891b-ce773edf096d  \n   Drug ID: 无\n\n4. Patent ID: b5f128ac-1d73-4f6c-a015-ef2b41f71055  \n   Drug ID: ["d367fa50d1d74df1a3b012e10f7408d5"]\n\n5. Patent ID: ff181981-057b-41c0-b613-2df3b70ae978  \n   Drug ID: ["d367fa50d1d74df1a3b012e10f7408d5"]\n\n这样每条记录中，若存在drug_id字段则显示相应的药物编号，否则标注为无。' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 973, 'prompt_tokens': 244, 'total_tokens': 1217, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 704, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-aa48b226-9c2f-4028-b450-124dbb141ddd-0' usage_metadata={'input_tokens': 244, 'output_tokens': 973, 'total_tokens': 1217, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 704}}
+2025-02-21 15:05:24,661 - utils.logger - INFO - Updated QA pairs with question: 帮我找几条专利延长类型为PTE的专利，返回专利id及关联的药物ID
+2025-02-21 15:09:49,014 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 15:09:59,220 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查询专利延期业务中延长类型为‘PTE’的专利记录，并返回这些专利的专利id和相关联的药物ID",\n  "tables": ["ads_phs_patent_extension"]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 704, 'prompt_tokens': 1303, 'total_tokens': 2007, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 640, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1152}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-901c4f86-b480-4866-b328-9c6811f68815-0' usage_metadata={'input_tokens': 1303, 'output_tokens': 704, 'total_tokens': 2007, 'input_token_details': {'audio': 0, 'cache_read': 1152}, 'output_token_details': {'audio': 0, 'reasoning': 640}}
+2025-02-21 15:09:59,237 - utils.logger - INFO - User Intent: 查询专利延期业务中延长类型为‘PTE’的专利记录，并返回这些专利的专利id和相关联的药物ID
+2025-02-21 15:09:59,238 - utils.logger - INFO - Related Tables: ['ads_phs_patent_extension']
+2025-02-21 15:09:59,241 - utils.logger - INFO - Structure for table ads_phs_patent_extension retrieved: 表名：ads_phs_patent_extension
+表结构：CREATE TABLE `ads_phs_patent_extension` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `extension_id` varchar(64) NOT NULL COMMENT '专利延期id',
+  `extension_apno` varchar(64) NOT NULL COMMENT 'spc/us_pte/us_pte_app/jp_pte,jp的apno号',
+  `applicant` text DEFAULT NULL COMMENT '申请机构名称',
+  `authority_country` varchar(64) DEFAULT NULL COMMENT '受理国家',
+  `authority_region_id` varchar(64) DEFAULT NULL COMMENT '申请国家 对应的region_id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `product` json DEFAULT NULL COMMENT 'product文本',
+  `indication` text DEFAULT NULL COMMENT '特定用途',
+  `extension_status` json DEFAULT NULL COMMENT '延期状态',
+  `maximum_expiry_date` varchar(32) DEFAULT NULL COMMENT '最晚到期日',
+  `extension_time` json DEFAULT NULL COMMENT '授予的延长时间',
+  `filing_date` varchar(64) DEFAULT NULL COMMENT 'spc申请日期',
+  `in_force_date` varchar(32) DEFAULT NULL COMMENT '授予延长/补偿的生效日',
+  `actual_expiry_date` varchar(32) DEFAULT NULL COMMENT '实际到期日',
+  `invalid_date` varchar(32) DEFAULT NULL COMMENT '延长失效日期',
+  `lapsed_date` varchar(32) DEFAULT NULL COMMENT '延长终止日',
+  `granted_date` varchar(32) DEFAULT NULL COMMENT '延长授权日',
+  `refused_date` varchar(32) DEFAULT NULL COMMENT '延长驳回日',
+  `revoked_date` varchar(32) DEFAULT NULL COMMENT '延长撤销日',
+  `ped` int(1) DEFAULT NULL COMMENT ' 是否儿科实验的6个月延长',
+  `url` varchar(255) DEFAULT NULL COMMENT '详情页地址',
+  `pdf_url` json DEFAULT NULL COMMENT '爬取的pdf的s3地址',
+  `extension_type` varchar(32) DEFAULT NULL COMMENT '数据来源',
+  `inpadoc_number` varchar(64) DEFAULT NULL COMMENT 'inpadoc_number',
+  `ped_expiry_date` varchar(32) DEFAULT NULL COMMENT 'ped 过期时间',
+  `ped_status` json DEFAULT NULL COMMENT 'ped 状态',
+  `ped_filling_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_granted_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_refused_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长驳回日',
+  `ped_revoked_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长撤销日',
+  `authorization_des` json DEFAULT NULL COMMENT '药物批准号和获批日期',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`patent_id`,`extension_id`) /*T![clustered_index] CLUSTERED */,
+  KEY `idx_extension_id` (`extension_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利延期业务表'
+示例数据：[{'extension_status': '["LAPSED"]', 'drug_id': '["836b5d60fa984b3fa4af638bf0fdf9d0"]', 'authorization_des': '[{"authorization_date": "20090515", "authorization_number": "EU/1/09/522"}]', 'extension_apno': 'spc', 'ped': '0', 'created_ts': '1733223672000', 'authority_country': 'AT', 'data_status': 'ACTIVE', 'extension_id': '18/2009', 'updated_ts': '1733223672000', 'patent_id': '0000bd07-b6b3-44fc-9b4c-951686a701aa', 'product': '[{"lang": "AT", "name": "ULIPRISTAL-ACETAT"}]', 'maximum_expiry_date': '20140623', 'extension_type': 'SPC'}]
+2025-02-21 15:10:13,124 - utils.logger - INFO - Generated SQL Response: content="SELECT patent_id, drug_id\nFROM ads_phs_patent_extension\nWHERE extension_type = 'PTE'\nORDER BY created_ts DESC\nLIMIT 5;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 491, 'prompt_tokens': 1285, 'total_tokens': 1776, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 448, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-2bedb416-b61c-4d26-8dce-561c57de88c0-0' usage_metadata={'input_tokens': 1285, 'output_tokens': 491, 'total_tokens': 1776, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 448}}
+2025-02-21 15:10:13,125 - utils.logger - INFO - Generated SQL: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:10:13,127 - utils.logger - INFO - Executing query: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:10:24,437 - utils.logger - INFO - Summarized Result: content='下面是整理后的数据，方便查看每条记录的专利编号（patent_id）以及相关的药品编号（drug_id，如果存在的话）：\n\n1. 专利编号：4a5b054b-0778-47fa-85fc-8b531719f8e1  \n   药品编号：无\n\n2. 专利编号：1e0750e7-6805-45f7-8d8e-fb54eeff6164  \n   药品编号：无\n\n3. 专利编号：40c4fa3f-a40d-49ba-891b-ce773edf096d  \n   药品编号：无\n\n4. 专利编号：b5f128ac-1d73-4f6c-a015-ef2b41f71055  \n   药品编号：["d367fa50d1d74df1a3b012e10f7408d5"]\n\n5. 专利编号：ff181981-057b-41c0-b613-2df3b70ae978  \n   药品编号：["d367fa50d1d74df1a3b012e10f7408d5"]\n\n如上所示，前3条记录仅包含专利信息，而第4条和第5条记录还包含对应的药品信息（以字符串形式呈现列表）。' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 696, 'prompt_tokens': 244, 'total_tokens': 940, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 384, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-b65ff5ea-3840-4128-ad80-e144dbae9ee1-0' usage_metadata={'input_tokens': 244, 'output_tokens': 696, 'total_tokens': 940, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 384}}
+2025-02-21 15:10:24,441 - utils.logger - INFO - Updated QA pairs with question: 帮我找几条专利延长类型为PTE的专利，返回专利id及关联的药物ID
+2025-02-21 15:13:17,322 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 15:13:40,772 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查找专利延期业务中专利延长类型为PTE的专利，并返回这些专利的专利ID及其关联的药物ID",\n  "tables": [\n    "ads_phs_patent_extension",\n    "ads_phs_patent_entity_rel"\n  ]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1358, 'prompt_tokens': 1303, 'total_tokens': 2661, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1280, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1152}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-a27376e2-ef34-4d73-bd9a-d56c18109ec2-0' usage_metadata={'input_tokens': 1303, 'output_tokens': 1358, 'total_tokens': 2661, 'input_token_details': {'audio': 0, 'cache_read': 1152}, 'output_token_details': {'audio': 0, 'reasoning': 1280}}
+2025-02-21 15:13:40,783 - utils.logger - INFO - User Intent: 查找专利延期业务中专利延长类型为PTE的专利，并返回这些专利的专利ID及其关联的药物ID
+2025-02-21 15:13:40,784 - utils.logger - INFO - Related Tables: ['ads_phs_patent_extension', 'ads_phs_patent_entity_rel']
+2025-02-21 15:13:40,786 - utils.logger - INFO - Structure for table ads_phs_patent_extension retrieved: 表名：ads_phs_patent_extension
+表结构：CREATE TABLE `ads_phs_patent_extension` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `extension_id` varchar(64) NOT NULL COMMENT '专利延期id',
+  `extension_apno` varchar(64) NOT NULL COMMENT 'spc/us_pte/us_pte_app/jp_pte,jp的apno号',
+  `applicant` text DEFAULT NULL COMMENT '申请机构名称',
+  `authority_country` varchar(64) DEFAULT NULL COMMENT '受理国家',
+  `authority_region_id` varchar(64) DEFAULT NULL COMMENT '申请国家 对应的region_id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `product` json DEFAULT NULL COMMENT 'product文本',
+  `indication` text DEFAULT NULL COMMENT '特定用途',
+  `extension_status` json DEFAULT NULL COMMENT '延期状态',
+  `maximum_expiry_date` varchar(32) DEFAULT NULL COMMENT '最晚到期日',
+  `extension_time` json DEFAULT NULL COMMENT '授予的延长时间',
+  `filing_date` varchar(64) DEFAULT NULL COMMENT 'spc申请日期',
+  `in_force_date` varchar(32) DEFAULT NULL COMMENT '授予延长/补偿的生效日',
+  `actual_expiry_date` varchar(32) DEFAULT NULL COMMENT '实际到期日',
+  `invalid_date` varchar(32) DEFAULT NULL COMMENT '延长失效日期',
+  `lapsed_date` varchar(32) DEFAULT NULL COMMENT '延长终止日',
+  `granted_date` varchar(32) DEFAULT NULL COMMENT '延长授权日',
+  `refused_date` varchar(32) DEFAULT NULL COMMENT '延长驳回日',
+  `revoked_date` varchar(32) DEFAULT NULL COMMENT '延长撤销日',
+  `ped` int(1) DEFAULT NULL COMMENT ' 是否儿科实验的6个月延长',
+  `url` varchar(255) DEFAULT NULL COMMENT '详情页地址',
+  `pdf_url` json DEFAULT NULL COMMENT '爬取的pdf的s3地址',
+  `extension_type` varchar(32) DEFAULT NULL COMMENT '数据来源',
+  `inpadoc_number` varchar(64) DEFAULT NULL COMMENT 'inpadoc_number',
+  `ped_expiry_date` varchar(32) DEFAULT NULL COMMENT 'ped 过期时间',
+  `ped_status` json DEFAULT NULL COMMENT 'ped 状态',
+  `ped_filling_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_granted_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_refused_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长驳回日',
+  `ped_revoked_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长撤销日',
+  `authorization_des` json DEFAULT NULL COMMENT '药物批准号和获批日期',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`patent_id`,`extension_id`) /*T![clustered_index] CLUSTERED */,
+  KEY `idx_extension_id` (`extension_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利延期业务表'
+示例数据：[{'extension_status': '["LAPSED"]', 'drug_id': '["836b5d60fa984b3fa4af638bf0fdf9d0"]', 'authorization_des': '[{"authorization_date": "20090515", "authorization_number": "EU/1/09/522"}]', 'extension_apno': 'spc', 'ped': '0', 'created_ts': '1733223672000', 'authority_country': 'AT', 'data_status': 'ACTIVE', 'extension_id': '18/2009', 'updated_ts': '1733223672000', 'patent_id': '0000bd07-b6b3-44fc-9b4c-951686a701aa', 'product': '[{"lang": "AT", "name": "ULIPRISTAL-ACETAT"}]', 'maximum_expiry_date': '20140623', 'extension_type': 'SPC'}]
+2025-02-21 15:13:42,194 - utils.logger - INFO - Structure for table ads_phs_patent_entity_rel retrieved: 表名：ads_phs_patent_entity_rel
+表结构：CREATE TABLE `ads_phs_patent_entity_rel` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `target_id` json DEFAULT NULL COMMENT '靶点id',
+  `disease_id` json DEFAULT NULL COMMENT '疾病id',
+  `patent_type` json DEFAULT NULL COMMENT 'patent_type',
+  `patent_type_drug_id` json DEFAULT NULL COMMENT 'patent_type_drug_id',
+  `is_curation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注过的专利',
+  `rel_org_ans` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否ans_org',
+  `rel_strategic` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否战略新兴',
+  `rel_cde` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cde',
+  `rel_fda` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否fda',
+  `rel_nih` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否nih',
+  `rel_extend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否扩展',
+  `rel_spc_pte` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否spc_pte',
+  `rel_cas_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cas_no',
+  `rel_seq_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否seq_no',
+  `rel_manual` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注',
+  `rel_retrieve` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否捞回',
+  `annotation` json DEFAULT NULL COMMENT 'annotation信息',
+  `seq_drug_id` json DEFAULT NULL COMMENT 'seq number mapping 逻辑产生的药物 ID',
+  `cas_drug_id` json DEFAULT NULL COMMENT 'cas number mapping 逻辑产生的药物 ID',
+  `non_ls` tinyint(1) DEFAULT NULL COMMENT '是否是非生物医药专利',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '数据更新时间',
+  `created_by` varchar(64) DEFAULT NULL COMMENT '创建人',
+  `updated_by` varchar(64) DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (`patent_id`) /*T![clustered_index] CLUSTERED */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利关系业务表'
+示例数据：[{'rel_cde': 'false', 'rel_manual': 'false', 'rel_fda': 'false', 'rel_spc_pte': 'false', 'rel_extend': 'false', 'rel_cas_no': 'false', 'created_ts': '1646652839000', 'rel_org_ans': 'false', 'rel_nih': 'false', 'data_status': 'DELETE', 'rel_retrieve': 'false', 'updated_ts': '1660210779000', 'patent_id': '00000055-f2e3-48b9-af6c-eb81afbd3de8', 'rel_seq_no': 'false', 'rel_strategic': 'false', 'is_curation': 'false', 'non_ls': 'true'}]
+2025-02-21 15:13:51,259 - utils.logger - INFO - Generated SQL Response: content="SELECT patent_id, drug_id\nFROM ads_phs_patent_extension\nWHERE extension_type = 'PTE'\n  AND data_status = 'ACTIVE'\nORDER BY created_ts DESC\nLIMIT 5;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 627, 'prompt_tokens': 2146, 'total_tokens': 2773, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 576, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-28e3eccd-a33a-4a56-8856-955b09f240b6-0' usage_metadata={'input_tokens': 2146, 'output_tokens': 627, 'total_tokens': 2773, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 576}}
+2025-02-21 15:13:51,261 - utils.logger - INFO - Generated SQL: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE'   AND data_status = 'ACTIVE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:13:51,263 - utils.logger - INFO - Executing query: SELECT patent_id, drug_id FROM ads_phs_patent_extension WHERE extension_type = 'PTE'   AND data_status = 'ACTIVE' ORDER BY created_ts DESC LIMIT 5;
+2025-02-21 15:14:10,080 - utils.logger - INFO - Summarized Result: content='下面是整理后的数据，展示了每个专利的专利编号以及（如果存在）对应的药物编号：\n\n─────────────────────────────\n专利编号                                   | 药物编号\n─────────────────────────────\n4a5b054b-0778-47fa-85fc-8b531719f8e1         | （无）\n1e0750e7-6805-45f7-8d8e-fb54eeff6164         | （无）\n40c4fa3f-a40d-49ba-891b-ce773edf096d         | （无）\nb5f128ac-1d73-4f6c-a015-ef2b41f71055         | ["d367fa50d1d74df1a3b012e10f7408d5"]\nff181981-057b-41c0-b613-2df3b70ae978         | ["d367fa50d1d74df1a3b012e10f7408d5"]\n─────────────────────────────\n\n这样整理后可以方便地查看每个专利对应的相关药物信息。' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1154, 'prompt_tokens': 244, 'total_tokens': 1398, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 896, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-4978f048-adac-4ea2-899d-75dfc285e1d8-0' usage_metadata={'input_tokens': 244, 'output_tokens': 1154, 'total_tokens': 1398, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 896}}
+2025-02-21 15:14:10,085 - utils.logger - INFO - Updated QA pairs with question: 帮我找几条专利延长类型为PTE的专利，返回专利id及关联的药物ID
+2025-02-21 15:53:19,649 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 15:53:30,724 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查询专利延长记录中专利延长类型为PTE的专利，并返回专利ID及其关联的药物ID",\n  "tables": [\n    "ads_phs_patent_extension",\n    "ads_phs_patent_entity_rel"\n  ]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 906, 'prompt_tokens': 1303, 'total_tokens': 2209, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 832, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-85a55b55-d905-40f5-8ba4-5a1720536f86-0' usage_metadata={'input_tokens': 1303, 'output_tokens': 906, 'total_tokens': 2209, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 832}}
+2025-02-21 15:53:30,733 - utils.logger - INFO - User Intent: 查询专利延长记录中专利延长类型为PTE的专利，并返回专利ID及其关联的药物ID
+2025-02-21 15:53:30,734 - utils.logger - INFO - Related Tables: ['ads_phs_patent_extension', 'ads_phs_patent_entity_rel']
+2025-02-21 15:53:30,736 - utils.logger - INFO - Structure for table ads_phs_patent_extension retrieved: 表名：ads_phs_patent_extension
+表结构：CREATE TABLE `ads_phs_patent_extension` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `extension_id` varchar(64) NOT NULL COMMENT '专利延期id',
+  `extension_apno` varchar(64) NOT NULL COMMENT 'spc/us_pte/us_pte_app/jp_pte,jp的apno号',
+  `applicant` text DEFAULT NULL COMMENT '申请机构名称',
+  `authority_country` varchar(64) DEFAULT NULL COMMENT '受理国家',
+  `authority_region_id` varchar(64) DEFAULT NULL COMMENT '申请国家 对应的region_id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `product` json DEFAULT NULL COMMENT 'product文本',
+  `indication` text DEFAULT NULL COMMENT '特定用途',
+  `extension_status` json DEFAULT NULL COMMENT '延期状态',
+  `maximum_expiry_date` varchar(32) DEFAULT NULL COMMENT '最晚到期日',
+  `extension_time` json DEFAULT NULL COMMENT '授予的延长时间',
+  `filing_date` varchar(64) DEFAULT NULL COMMENT 'spc申请日期',
+  `in_force_date` varchar(32) DEFAULT NULL COMMENT '授予延长/补偿的生效日',
+  `actual_expiry_date` varchar(32) DEFAULT NULL COMMENT '实际到期日',
+  `invalid_date` varchar(32) DEFAULT NULL COMMENT '延长失效日期',
+  `lapsed_date` varchar(32) DEFAULT NULL COMMENT '延长终止日',
+  `granted_date` varchar(32) DEFAULT NULL COMMENT '延长授权日',
+  `refused_date` varchar(32) DEFAULT NULL COMMENT '延长驳回日',
+  `revoked_date` varchar(32) DEFAULT NULL COMMENT '延长撤销日',
+  `ped` int(1) DEFAULT NULL COMMENT ' 是否儿科实验的6个月延长',
+  `url` varchar(255) DEFAULT NULL COMMENT '详情页地址',
+  `pdf_url` json DEFAULT NULL COMMENT '爬取的pdf的s3地址',
+  `extension_type` varchar(32) DEFAULT NULL COMMENT '数据来源',
+  `inpadoc_number` varchar(64) DEFAULT NULL COMMENT 'inpadoc_number',
+  `ped_expiry_date` varchar(32) DEFAULT NULL COMMENT 'ped 过期时间',
+  `ped_status` json DEFAULT NULL COMMENT 'ped 状态',
+  `ped_filling_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_granted_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_refused_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长驳回日',
+  `ped_revoked_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长撤销日',
+  `authorization_des` json DEFAULT NULL COMMENT '药物批准号和获批日期',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`patent_id`,`extension_id`) /*T![clustered_index] CLUSTERED */,
+  KEY `idx_extension_id` (`extension_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利延期业务表'
+示例数据：[{'extension_status': '["LAPSED"]', 'drug_id': '["836b5d60fa984b3fa4af638bf0fdf9d0"]', 'authorization_des': '[{"authorization_date": "20090515", "authorization_number": "EU/1/09/522"}]', 'extension_apno': 'spc', 'ped': '0', 'created_ts': '1733223672000', 'authority_country': 'AT', 'data_status': 'ACTIVE', 'extension_id': '18/2009', 'updated_ts': '1733223672000', 'patent_id': '0000bd07-b6b3-44fc-9b4c-951686a701aa', 'product': '[{"lang": "AT", "name": "ULIPRISTAL-ACETAT"}]', 'maximum_expiry_date': '20140623', 'extension_type': 'SPC'}]
+2025-02-21 15:53:30,737 - utils.logger - INFO - Structure for table ads_phs_patent_entity_rel retrieved: 表名：ads_phs_patent_entity_rel
+表结构：CREATE TABLE `ads_phs_patent_entity_rel` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `target_id` json DEFAULT NULL COMMENT '靶点id',
+  `disease_id` json DEFAULT NULL COMMENT '疾病id',
+  `patent_type` json DEFAULT NULL COMMENT 'patent_type',
+  `patent_type_drug_id` json DEFAULT NULL COMMENT 'patent_type_drug_id',
+  `is_curation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注过的专利',
+  `rel_org_ans` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否ans_org',
+  `rel_strategic` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否战略新兴',
+  `rel_cde` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cde',
+  `rel_fda` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否fda',
+  `rel_nih` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否nih',
+  `rel_extend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否扩展',
+  `rel_spc_pte` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否spc_pte',
+  `rel_cas_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cas_no',
+  `rel_seq_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否seq_no',
+  `rel_manual` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注',
+  `rel_retrieve` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否捞回',
+  `annotation` json DEFAULT NULL COMMENT 'annotation信息',
+  `seq_drug_id` json DEFAULT NULL COMMENT 'seq number mapping 逻辑产生的药物 ID',
+  `cas_drug_id` json DEFAULT NULL COMMENT 'cas number mapping 逻辑产生的药物 ID',
+  `non_ls` tinyint(1) DEFAULT NULL COMMENT '是否是非生物医药专利',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '数据更新时间',
+  `created_by` varchar(64) DEFAULT NULL COMMENT '创建人',
+  `updated_by` varchar(64) DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (`patent_id`) /*T![clustered_index] CLUSTERED */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利关系业务表'
+示例数据：[{'rel_cde': 'false', 'rel_manual': 'false', 'rel_fda': 'false', 'rel_spc_pte': 'false', 'rel_extend': 'false', 'rel_cas_no': 'false', 'created_ts': '1646652839000', 'rel_org_ans': 'false', 'rel_nih': 'false', 'data_status': 'DELETE', 'rel_retrieve': 'false', 'updated_ts': '1660210779000', 'patent_id': '00000055-f2e3-48b9-af6c-eb81afbd3de8', 'rel_seq_no': 'false', 'rel_strategic': 'false', 'is_curation': 'false', 'non_ls': 'true'}]
+2025-02-21 15:53:53,539 - utils.logger - INFO - Generated SQL Response: content="SELECT \n  e.patent_id,\n  r.drug_id\nFROM \n  ads_phs_patent_extension AS e\nJOIN \n  ads_phs_patent_entity_rel AS r \n    ON e.patent_id = r.patent_id\nWHERE \n  e.extension_type = 'PTE'\n  AND e.data_status = 'ACTIVE'\nORDER BY \n  e.created_ts DESC\nLIMIT 5;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 2337, 'prompt_tokens': 2142, 'total_tokens': 4479, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 2240, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-19c60019-7f22-45a6-b9a6-765f49ace5fe-0' usage_metadata={'input_tokens': 2142, 'output_tokens': 2337, 'total_tokens': 4479, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 2240}}
+2025-02-21 15:53:53,541 - utils.logger - INFO - Generated SQL: SELECT    e.patent_id,   r.drug_id FROM    ads_phs_patent_extension AS e JOIN    ads_phs_patent_entity_rel AS r      ON e.patent_id = r.patent_id WHERE    e.extension_type = 'PTE'   AND e.data_status = 'ACTIVE' ORDER BY    e.created_ts DESC LIMIT 5;
+2025-02-21 15:53:53,543 - utils.logger - INFO - Executing query: SELECT    e.patent_id,   r.drug_id FROM    ads_phs_patent_extension AS e JOIN    ads_phs_patent_entity_rel AS r      ON e.patent_id = r.patent_id WHERE    e.extension_type = 'PTE'   AND e.data_status = 'ACTIVE' ORDER BY    e.created_ts DESC LIMIT 5;
+2025-02-21 15:54:08,528 - utils.logger - INFO - Summarized Result: content='下面是整理后的查询结果，按 drug_id 对应的专利列表分组展示：\n\n药品 ID: 1841b51d4b3649ed86c3615eb21765ce\n  └ 专利 ID 列表：\n      • 4a5b054b-0778-47fa-85fc-8b531719f8e1\n      • 40c4fa3f-a40d-49ba-891b-ce773edf096d\n      • 1e0750e7-6805-45f7-8d8e-fb54eeff6164\n\n药品 ID: d367fa50d1d74df1a3b012e10f7408d5\n  └ 专利 ID 列表：\n      • b5f128ac-1d73-4f6c-a015-ef2b41f71055\n      • ff181981-057b-41c0-b613-2df3b70ae978' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1062, 'prompt_tokens': 322, 'total_tokens': 1384, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 832, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-de49a6ba-0041-47fe-9a98-c5afc2d2c411-0' usage_metadata={'input_tokens': 322, 'output_tokens': 1062, 'total_tokens': 1384, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 832}}
+2025-02-21 15:54:08,533 - utils.logger - INFO - Updated QA pairs with question: 帮我找几条专利延长类型为PTE的专利，返回专利id及关联的药物ID
+2025-02-21 16:12:10,374 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 16:12:25,789 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "从专利延期业务中筛选出延长类型为PTE的专利，并返回这些专利的专利id以及它们关联的药物ID",\n  "tables": [\n    "ads_phs_patent_extension",\n    "ads_phs_patent_entity_rel"\n  ]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1423, 'prompt_tokens': 1303, 'total_tokens': 2726, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1344, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1152}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-f64589b0-d630-47b6-b2e8-9b27458e21f5-0' usage_metadata={'input_tokens': 1303, 'output_tokens': 1423, 'total_tokens': 2726, 'input_token_details': {'audio': 0, 'cache_read': 1152}, 'output_token_details': {'audio': 0, 'reasoning': 1344}}
+2025-02-21 16:12:25,797 - utils.logger - INFO - User Intent: 从专利延期业务中筛选出延长类型为PTE的专利，并返回这些专利的专利id以及它们关联的药物ID
+2025-02-21 16:12:25,798 - utils.logger - INFO - Related Tables: ['ads_phs_patent_extension', 'ads_phs_patent_entity_rel']
+2025-02-21 16:12:25,800 - utils.logger - INFO - Structure for table ads_phs_patent_extension retrieved: 表名：ads_phs_patent_extension
+表结构：CREATE TABLE `ads_phs_patent_extension` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `extension_id` varchar(64) NOT NULL COMMENT '专利延期id',
+  `extension_apno` varchar(64) NOT NULL COMMENT 'spc/us_pte/us_pte_app/jp_pte,jp的apno号',
+  `applicant` text DEFAULT NULL COMMENT '申请机构名称',
+  `authority_country` varchar(64) DEFAULT NULL COMMENT '受理国家',
+  `authority_region_id` varchar(64) DEFAULT NULL COMMENT '申请国家 对应的region_id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `product` json DEFAULT NULL COMMENT 'product文本',
+  `indication` text DEFAULT NULL COMMENT '特定用途',
+  `extension_status` json DEFAULT NULL COMMENT '延期状态',
+  `maximum_expiry_date` varchar(32) DEFAULT NULL COMMENT '最晚到期日',
+  `extension_time` json DEFAULT NULL COMMENT '授予的延长时间',
+  `filing_date` varchar(64) DEFAULT NULL COMMENT 'spc申请日期',
+  `in_force_date` varchar(32) DEFAULT NULL COMMENT '授予延长/补偿的生效日',
+  `actual_expiry_date` varchar(32) DEFAULT NULL COMMENT '实际到期日',
+  `invalid_date` varchar(32) DEFAULT NULL COMMENT '延长失效日期',
+  `lapsed_date` varchar(32) DEFAULT NULL COMMENT '延长终止日',
+  `granted_date` varchar(32) DEFAULT NULL COMMENT '延长授权日',
+  `refused_date` varchar(32) DEFAULT NULL COMMENT '延长驳回日',
+  `revoked_date` varchar(32) DEFAULT NULL COMMENT '延长撤销日',
+  `ped` int(1) DEFAULT NULL COMMENT ' 是否儿科实验的6个月延长',
+  `url` varchar(255) DEFAULT NULL COMMENT '详情页地址',
+  `pdf_url` json DEFAULT NULL COMMENT '爬取的pdf的s3地址',
+  `extension_type` varchar(32) DEFAULT NULL COMMENT '数据来源',
+  `inpadoc_number` varchar(64) DEFAULT NULL COMMENT 'inpadoc_number',
+  `ped_expiry_date` varchar(32) DEFAULT NULL COMMENT 'ped 过期时间',
+  `ped_status` json DEFAULT NULL COMMENT 'ped 状态',
+  `ped_filling_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_granted_date` varchar(32) DEFAULT NULL COMMENT 'ped 申请日期',
+  `ped_refused_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长驳回日',
+  `ped_revoked_date` varchar(32) DEFAULT NULL COMMENT 'ped 延长撤销日',
+  `authorization_des` json DEFAULT NULL COMMENT '药物批准号和获批日期',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`patent_id`,`extension_id`) /*T![clustered_index] CLUSTERED */,
+  KEY `idx_extension_id` (`extension_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利延期业务表'
+示例数据：[{'extension_status': '["LAPSED"]', 'drug_id': '["836b5d60fa984b3fa4af638bf0fdf9d0"]', 'authorization_des': '[{"authorization_date": "20090515", "authorization_number": "EU/1/09/522"}]', 'extension_apno': 'spc', 'ped': '0', 'created_ts': '1733223672000', 'authority_country': 'AT', 'data_status': 'ACTIVE', 'extension_id': '18/2009', 'updated_ts': '1733223672000', 'patent_id': '0000bd07-b6b3-44fc-9b4c-951686a701aa', 'product': '[{"lang": "AT", "name": "ULIPRISTAL-ACETAT"}]', 'maximum_expiry_date': '20140623', 'extension_type': 'SPC'}]
+2025-02-21 16:12:25,802 - utils.logger - INFO - Structure for table ads_phs_patent_entity_rel retrieved: 表名：ads_phs_patent_entity_rel
+表结构：CREATE TABLE `ads_phs_patent_entity_rel` (
+  `patent_id` varchar(64) NOT NULL COMMENT '专利id',
+  `drug_id` json DEFAULT NULL COMMENT '药物id',
+  `target_id` json DEFAULT NULL COMMENT '靶点id',
+  `disease_id` json DEFAULT NULL COMMENT '疾病id',
+  `patent_type` json DEFAULT NULL COMMENT 'patent_type',
+  `patent_type_drug_id` json DEFAULT NULL COMMENT 'patent_type_drug_id',
+  `is_curation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注过的专利',
+  `rel_org_ans` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否ans_org',
+  `rel_strategic` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否战略新兴',
+  `rel_cde` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cde',
+  `rel_fda` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否fda',
+  `rel_nih` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否nih',
+  `rel_extend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否扩展',
+  `rel_spc_pte` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否spc_pte',
+  `rel_cas_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否cas_no',
+  `rel_seq_no` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否seq_no',
+  `rel_manual` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否人工标注',
+  `rel_retrieve` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否捞回',
+  `annotation` json DEFAULT NULL COMMENT 'annotation信息',
+  `seq_drug_id` json DEFAULT NULL COMMENT 'seq number mapping 逻辑产生的药物 ID',
+  `cas_drug_id` json DEFAULT NULL COMMENT 'cas number mapping 逻辑产生的药物 ID',
+  `non_ls` tinyint(1) DEFAULT NULL COMMENT '是否是非生物医药专利',
+  `data_status` varchar(64) NOT NULL DEFAULT 'ACTIVE' COMMENT '数据状态',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '数据更新时间',
+  `created_by` varchar(64) DEFAULT NULL COMMENT '创建人',
+  `updated_by` varchar(64) DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (`patent_id`) /*T![clustered_index] CLUSTERED */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='专利关系业务表'
+示例数据：[{'rel_cde': 'false', 'rel_manual': 'false', 'rel_fda': 'false', 'rel_spc_pte': 'false', 'rel_extend': 'false', 'rel_cas_no': 'false', 'created_ts': '1646652839000', 'rel_org_ans': 'false', 'rel_nih': 'false', 'data_status': 'DELETE', 'rel_retrieve': 'false', 'updated_ts': '1660210779000', 'patent_id': '00000055-f2e3-48b9-af6c-eb81afbd3de8', 'rel_seq_no': 'false', 'rel_strategic': 'false', 'is_curation': 'false', 'non_ls': 'true'}]
+2025-02-21 16:12:37,765 - utils.logger - INFO - Generated SQL Response: content="SELECT\n  patent_id,\n  drug_id\nFROM\n  ads_phs_patent_extension\nWHERE\n  extension_type = 'PTE'\n  AND data_status = 'ACTIVE'\nORDER BY\n  created_ts DESC\nLIMIT 5;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1084, 'prompt_tokens': 2147, 'total_tokens': 3231, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1024, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-ea8cbace-eb3b-4f0e-b86a-b86543093b20-0' usage_metadata={'input_tokens': 2147, 'output_tokens': 1084, 'total_tokens': 3231, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1024}}
+2025-02-21 16:12:37,766 - utils.logger - INFO - Generated SQL: SELECT   patent_id,   drug_id FROM   ads_phs_patent_extension WHERE   extension_type = 'PTE'   AND data_status = 'ACTIVE' ORDER BY   created_ts DESC LIMIT 5;
+2025-02-21 16:12:37,768 - utils.logger - INFO - Executing query: SELECT   patent_id,   drug_id FROM   ads_phs_patent_extension WHERE   extension_type = 'PTE'   AND data_status = 'ACTIVE' ORDER BY   created_ts DESC LIMIT 5;
+2025-02-21 16:12:51,825 - utils.logger - INFO - Summarized Result: content='下面是将查询数据整理后的易于查看的格式：\n\n────────────────────────────────────────────\n| 序号 |              专利ID               |                    药品ID                    |\n────────────────────────────────────────────\n|  1   | 4a5b054b-0778-47fa-85fc-8b531719f8e1 |                   （无）                   |\n|  2   | 1e0750e7-6805-45f7-8d8e-fb54eeff6164 |                   （无）                   |\n|  3   | 40c4fa3f-a40d-49ba-891b-ce773edf096d |                   （无）                   |\n|  4   | b5f128ac-1d73-4f6c-a015-ef2b41f71055 | ["d367fa50d1d74df1a3b012e10f7408d5"] |\n|  5   | ff181981-057b-41c0-b613-2df3b70ae978 | ["d367fa50d1d74df1a3b012e10f7408d5"] |\n────────────────────────────────────────────\n\n说明：\n1. 前三条记录仅包含专利ID，没有关联的药品ID；\n2. 第四与第五条记录包含药品ID（以JSON格式字符串存储）。\n\n这样的展示方式便于快速查看每条记录的专利信息及其关联药品信息。' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1038, 'prompt_tokens': 244, 'total_tokens': 1282, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 704, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-56415e5f-e25c-48b2-a3eb-ad2ef4e58f02-0' usage_metadata={'input_tokens': 244, 'output_tokens': 1038, 'total_tokens': 1282, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 704}}
+2025-02-21 16:12:51,829 - utils.logger - INFO - Updated QA pairs with question: 帮我找几条专利延长类型为PTE的专利，返回专利id及关联的药物ID
+2025-02-21 16:36:53,197 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 16:37:03,496 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查找拥有最多生物类似药的原研药物，并返回该原研药物的ID",\n  "tables": ["ads_phs_drug"]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1523, 'prompt_tokens': 1296, 'total_tokens': 2819, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1472, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-787748a5-8399-4d1f-b6b1-44b37811902b-0' usage_metadata={'input_tokens': 1296, 'output_tokens': 1523, 'total_tokens': 2819, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1472}}
+2025-02-21 16:37:03,506 - utils.logger - INFO - User Intent: 查找拥有最多生物类似药的原研药物，并返回该原研药物的ID
+2025-02-21 16:37:03,507 - utils.logger - INFO - Related Tables: ['ads_phs_drug']
+2025-02-21 16:37:05,095 - utils.logger - INFO - Structure for table ads_phs_drug retrieved: 表名：ads_phs_drug
+表结构：CREATE TABLE `ads_phs_drug` (
+  `drug_id` varchar(32) NOT NULL COMMENT '药物 ID',
+  `docid` int(11) DEFAULT NULL COMMENT '数字主键',
+  `drug_name` json NOT NULL COMMENT '药物名称, List<Map>',
+  `alias` json DEFAULT NULL COMMENT '别名, List<Map>',
+  `dev_code` json DEFAULT NULL COMMENT '研发代码, List<Map>',
+  `trade_name` json DEFAULT NULL COMMENT '商品名, List<Map>',
+  `generic_name` json DEFAULT NULL COMMENT '通用名称, List<Map>',
+  `is_nme` tinyint(1) DEFAULT NULL COMMENT '是否NME, New molecular entity',
+  `is_first_in_class` tinyint(1) DEFAULT NULL COMMENT '是否First-in-class',
+  `is_qidp` tinyint(1) DEFAULT NULL COMMENT '是否 Qualified Infectious Disease Product 合格传染病产品资格',
+  `is_compound_medicine` tinyint(1) DEFAULT NULL COMMENT '是否复方',
+  `biological_drug_source` varchar(32) DEFAULT NULL COMMENT '生物药来源 dict_type= BIOLOGICAL_DRUG_SOURCE',
+  `express_system` varchar(32) DEFAULT NULL COMMENT '表达体系 dict_type=EXPRESS_SYSTEM',
+  `registered_classification_cn` varchar(32) DEFAULT NULL COMMENT '中国注册分类',
+  `null_target_reason` varchar(32) DEFAULT NULL COMMENT '无靶点原因 NOT_AVAILABLE/UNDEFINED',
+  `wiki_link` varchar(1500) DEFAULT NULL COMMENT 'wiki 地址',
+  `drugbank_id` json DEFAULT NULL COMMENT 'drugbank_id, List<String>',
+  `kegg_id` json DEFAULT NULL COMMENT 'kegg_id, List<String>',
+  `related_component` json DEFAULT NULL COMMENT '复方药的相关组分, List<String>',
+  `drug_type` json DEFAULT NULL COMMENT '药物类型, List<String>',
+  `originator_org_master_entity_id` json DEFAULT NULL COMMENT '原研机构, List<String>',
+  `mechanism_action_id` json DEFAULT NULL COMMENT '作用机制 ID, List<String>',
+  `target_id` json DEFAULT NULL COMMENT '靶点 id, List<String>',
+  `atc_code` json DEFAULT NULL COMMENT 'ATC 代码，WHO发布的药物分类系统, List<String>',
+  `antibody_drug_id` varchar(32) DEFAULT NULL COMMENT '抗体 ID',
+  `antibody_type` varchar(32) DEFAULT NULL COMMENT '抗体类型',
+  `linker_id` varchar(32) DEFAULT NULL COMMENT '连接子 id',
+  `linker_number` varchar(32) DEFAULT NULL COMMENT '连接子数量',
+  `payload_id` varchar(32) DEFAULT NULL COMMENT '载荷id',
+  `dar` json DEFAULT NULL COMMENT '药物抗体比',
+  `specific_site` tinyint(1) DEFAULT NULL COMMENT '是否定点偶联',
+  `site_id` varchar(32) DEFAULT NULL COMMENT '位点id',
+  `adc_reference` json DEFAULT NULL COMMENT 'ADC 参考信息',
+  `target_moiety_type` json DEFAULT NULL COMMENT '靶向药物类型',
+  `data_source` int(3) DEFAULT NULL COMMENT '数据来源',
+  `genetic_material` varchar(32) DEFAULT NULL COMMENT '遗传物质, dict_type = V_GENETIC_MATERIAL',
+  `delivery_system` json DEFAULT NULL COMMENT '递送系统, dict_type = V_DELIVERY_SYSTEM',
+  `targeted_tissue` json DEFAULT NULL COMMENT '靶向组织, dict_type = V_TARGETED_TISSUE',
+  `paired_region` json DEFAULT NULL COMMENT '识别区域, dict_type = V_PAIRED_REGION',
+  `regulation_type` json DEFAULT NULL COMMENT '调控机制, dict_type = V_REGULATION_TYPE',
+  `tech_platform` json DEFAULT NULL COMMENT '技术平台, dict_type = TECH_PLATFORM',
+  `source_info_xna` json DEFAULT NULL COMMENT '核酸药物来源信息',
+  `if_speculate` tinyint(1) DEFAULT NULL COMMENT '是否含有推测信息, 比如利用 WHO INN 推测药物结构',
+  `profile` json DEFAULT NULL COMMENT '描述',
+  `is_pathway` tinyint(1) DEFAULT NULL COMMENT '是否 pathway',
+  `special_review` json DEFAULT NULL COMMENT '特殊审评 List<String>',
+  `disease_id` json DEFAULT NULL COMMENT '适应症ID List<String>',
+  `active_org_master_entity_id` json DEFAULT NULL COMMENT '在研机构 List<String>',
+  `global_highest_dev_status` varchar(32) DEFAULT NULL COMMENT '全球最高研发状态',
+  `global_highest_dev_status_before_termination` varchar(32) DEFAULT NULL COMMENT '终止前全球最高研发状态',
+  `highest_dev_status_cn` varchar(32) DEFAULT NULL COMMENT '中国最高研发状态',
+  `highest_dev_status_before_termination_cn` varchar(32) DEFAULT NULL COMMENT '终止前中国最高研发状态',
+  `first_approved_date` bigint(20) DEFAULT NULL COMMENT '首批时间',
+  `first_approved_country` json DEFAULT NULL COMMENT '首批国家, List<String>',
+  `first_approved_indication` json DEFAULT NULL COMMENT '首批适应症, List<String>',
+  `research_disease` json DEFAULT NULL COMMENT '在研适应症, List<String>',
+  `non_research_disease` json DEFAULT NULL COMMENT '非在研适应症, List<String>',
+  `inactive_org_master_entity_id` json DEFAULT NULL COMMENT '非在研机构 ,List<String>',
+  `therapeutic_area` json DEFAULT NULL COMMENT '治疗领域, List<String>',
+  `approval_country` json DEFAULT NULL COMMENT '获批国家, List<String>',
+  `research_country` json DEFAULT NULL COMMENT '研发国家, List<String>',
+  `rnk` int(11) DEFAULT NULL COMMENT '同靶点药物排名',
+  `disease_phase` json DEFAULT NULL COMMENT '药物适应症 pahse, List<Map>',
+  `adc_count` int(11) DEFAULT NULL COMMENT 'adc 药物被关联的次数',
+  `target_extend_id` varchar(32) DEFAULT NULL COMMENT '多靶点表ID  生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  `has_leading_org_involved` tinyint(1) DEFAULT NULL COMMENT '是否有头部企业参与',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间（数据库维护）',
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间（数据库维护）',
+  `data_status` varchar(10) NOT NULL COMMENT '数据状态 DELETE/ACTIVE',
+  `original_drug_id` json DEFAULT NULL COMMENT '生物类似药',
+  `created_by` varchar(255) DEFAULT NULL,
+  `updated_by` varchar(255) DEFAULT NULL,
+  `deal_related_org` json DEFAULT NULL COMMENT '交易涉及机构',
+  `first_approved_date_cn` bigint(20) DEFAULT NULL COMMENT '中国首批时间',
+  `moiety_target_id` json DEFAULT NULL COMMENT '抗体靶点ID',
+  `payload_target_id` json DEFAULT NULL COMMENT '载荷靶点ID',
+  `moiety_mechanism_action_id` json DEFAULT NULL COMMENT '抗体作用机制ID',
+  `payload_mechanism_action_id` json DEFAULT NULL COMMENT '载荷作用机制D',
+  `moiety_target_extend_id` varchar(32) DEFAULT NULL COMMENT '抗体靶点对应的多靶点ID 生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  `payload_target_extend_id` varchar(32) DEFAULT NULL COMMENT '载荷靶点对应的多靶点ID 生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  PRIMARY KEY (`drug_id`) /*T![clustered_index] CLUSTERED */,
+  UNIQUE KEY `docid` (`docid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='药物业务表'
+示例数据：[{'drug_id': '0000717d1e7143dc94fd46c1755cd8e3', 'is_qidp': 'false', 'global_highest_dev_status': 'c9e8fce7eb6b4bbd9cc66dc356017aab', 'is_first_in_class': 'false', 'non_research_disease': '["25aa9dbd25714b36b8bcb9347d1b91d1"]', 'originator_org_master_entity_id': '["da38a0196b9c470b09ba68c74f0e6d64"]', 'created_ts': '1677735049000', 'drug_type': '["1151dbc710f64a85923dc05d4a5a0ba9"]', 'data_status': 'ACTIVE', 'drug_name': '[{"lang": "EN", "name": "JM023", "status": "ACTIVE"}]', 'research_country': '[{"country": "5a365096-b2a6-31cb-acdf-1de1f5ab3abe", "dev_status": "c9e8fce7eb6b4bbd9cc66dc356017aab", "dev_status_time": {"time_trust_code": 7, "time_ts": 1669766400000}}]', 'created_by': 'data@patsnap.com', 'data_source': '10', 'updated_by': 'data@patsnap.com', 'dev_code': '[{"name": "AD20190509", "status": "ACTIVE"}]', 'is_pathway': 'false', 'disease_phase': '[{"disease_id": "25aa9dbd25714b36b8bcb9347d1b91d1", "highest_phase_cn": "c9e8fce7eb6b4bbd9cc66dc356017aab", "highest_phase_global": "c9e8fce7eb6b4bbd9cc66dc356017aab"}]', 'therapeutic_area': '["042cbe45c973477b957717ded29ef7b6"]', 'is_nme': 'false', 'updated_ts': '1735604387000', 'is_compound_medicine': 'false', 'docid': '36127', 'null_target_reason': 'UNDEFINED', 'highest_dev_status_cn': 'c9e8fce7eb6b4bbd9cc66dc356017aab', 'disease_id': '["25aa9dbd25714b36b8bcb9347d1b91d1"]', 'inactive_org_master_entity_id': '["da38a0196b9c470b09ba68c74f0e6d64"]'}]
+2025-02-21 16:37:16,979 - utils.logger - INFO - Generated SQL Response: content="SELECT \n  original_drug_id AS innovator_drug_id,\n  COUNT(*) AS biosimilar_count\nFROM ads_phs_drug\nWHERE \n  original_drug_id IS NOT NULL \n  AND data_status = 'ACTIVE'\nGROUP BY original_drug_id\nORDER BY biosimilar_count DESC\nLIMIT 1;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1422, 'prompt_tokens': 2813, 'total_tokens': 4235, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1344, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-9163637e-a915-47c9-b9a5-9a23f3ddf1fe-0' usage_metadata={'input_tokens': 2813, 'output_tokens': 1422, 'total_tokens': 4235, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1344}}
+2025-02-21 16:37:16,981 - utils.logger - INFO - Generated SQL: SELECT    original_drug_id AS innovator_drug_id,   COUNT(*) AS biosimilar_count FROM ads_phs_drug WHERE    original_drug_id IS NOT NULL    AND data_status = 'ACTIVE' GROUP BY original_drug_id ORDER BY biosimilar_count DESC LIMIT 1;
+2025-02-21 16:37:16,983 - utils.logger - INFO - Executing query: SELECT    original_drug_id AS innovator_drug_id,   COUNT(*) AS biosimilar_count FROM ads_phs_drug WHERE    original_drug_id IS NOT NULL    AND data_status = 'ACTIVE' GROUP BY original_drug_id ORDER BY biosimilar_count DESC LIMIT 1;
+2025-02-21 16:37:22,773 - utils.logger - INFO - Summarized Result: content='以下为整理后的查询结果：\n\n─────────────────────────────  \n创新药品 ID:  \n  • 68431d4745744d9e9e17a3073edd3920\n\n生物仿制药数量:  \n  • 78  \n─────────────────────────────  \n\n说明：  \n1. “innovator_drug_id”字段中包含一个ID数组，当前显示单个ID。  \n2. “biosimilar_count”字段表示对应的生物仿制药数量。' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 563, 'prompt_tokens': 76, 'total_tokens': 639, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 448, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-92e85355-6bc0-47f2-8174-587be6e57f93-0' usage_metadata={'input_tokens': 76, 'output_tokens': 563, 'total_tokens': 639, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 448}}
+2025-02-21 16:37:22,778 - utils.logger - INFO - Updated QA pairs with question: 帮我找出生物类似药最多的原研药物，返回原研药物ID
+2025-02-21 16:40:40,323 - utils.logger - INFO - Retrieved all available tables: [('ads_phs_patent_text_type', '中英文专利文本分类业务表'), ('ads_phs_drug_deal', '交易业务表'), ('ads_phs_dmp_drug_deal_sub_event', 'dmp交易子事件检索大宽表'), ('ads_phs_da_cde', 'CDE业务表'), ('ads_phs_cr_biomarker', '生物标志物(实体)业务表'), ('ads_phs_drug_special_approval_tuple', '特殊审评二元组业务表'), ('ads_phs_patent_fda', 'fda 专利业务表'), ('ads_phs_patent_technology', '专利技术分类业务表'), ('ads_phs_dmp_drug', '药物检索大宽表'), ('ads_phs_ct', '临床业务表'), ('ads_phs_patent_entity_rel', 'LS 专利关系业务表'), ('ads_phs_cr', '临床结果业务表'), ('ads_phs_tm', '转化医学业务表'), ('ads_phs_dmp_cr', '临床结果检索大宽表'), ('ads_phs_da_cde_special_approval', 'CDE特殊审批品种业务表'), ('ads_phs_dmp_dev_status', '研发状态（业务表）检索大宽表'), ('ads_phs_da_base', '药物审批基础业务表;ads'), ('ads_phs_dmp_ct', '临床检索大宽表'), ('ads_phs_dmp_dev_status_detail', '药物研发状态明细检索表'), ('ads_phs_target', '靶点业务表'), ('ads_phs_pub_name', 'PHS名称明细表'), ('ads_phs_patent_extension', '专利延期业务表'), ('ads_phs_dmp_tm', 'dmp转化医学检索大宽表'), ('ads_phs_drug', '药物业务表'), ('ads_phs_paper_rel', 'pharm 文献关系明细表'), ('ads_phs_drug_deal_translation', '交易业务翻译表'), ('ads_phs_dmp_biomarker', '生物标记物检索大宽表'), ('ads_phs_da_cde_breakthrough_therapy', 'CDE突破性治疗公示业务表'), ('ads_phs_patent_recommend', '专利推荐业务表'), ('ads_phs_da_cde_acceptance_progress', 'CDE受理进度业务表'), ('ads_phs_dmp_drug_deal', 'dmp交易检索大宽表'), ('ads_phs_patent_cde', 'cde 专利业务表'), ('ads_phs_dmp_target', '靶点大宽表'), ('ads_phs_dmp_news', '新闻检索大宽表'), ('ads_phs_drug_mechanism_action', '作用机制业务表'), ('ads_phs_tm_translation', '转化医学业务翻译表'), ('ads_phs_cr_endpoint', '终点指标(实体)业务表'), ('ads_phs_drug_chemical_rel', '药物结构关系业务表'), ('ads_phs_cr_group_list', '临床结果分组业务表'), ('ads_phs_cr_outcome_measure', '临床结果终点指标业务表'), ('ads_phs_pub_multi_source_rel', '公共实体关系表'), ('ads_phs_org', 'pharm机构业务表'), ('ads_phs_da_cde_priority_review', 'CDE优先审评公示业务表'), ('ads_phs_cr_baseline_measure', '临床结果基线业务表'), ('ads_phs_da_cde_trinity_publicity', 'CDE三合一序列公示业务表'), ('ads_phs_patent_dosage_form', 'PHS 专利剂型业务表'), ('ads_phs_report', '报告信息'), ('ads_phs_drug_milestone', '药物Milestone业务表'), ('ads_phs_da_cde_delivery_info', 'CDE送达信息业务表'), ('ads_phs_pub_entity_migration_record', '实体迁移记录业务表'), ('ads_phs_da_product', '药物审批product业务表;ads'), ('ads_phs_da_cde_acceptance_variety', 'CDE受理品种信业务表'), ('ads_phs_pub_annotation', '公共标注表;ads'), ('ads_phs_cr_translation', '临床结果翻译业务表'), ('ads_phs_da_cde_ct_imply_license', 'CDE临床默示许可业务表'), ('ads_phs_drug_special_approval', '药物特殊审评业务表'), ('ads_phs_da_submission', '药物审批submission业务表;ads'), ('ads_phs_dmp_drug_approval', ''), ('ads_phs_dmp_disease', '适应症检索大宽表'), ('ads_phs_ct_translation', '临床业务翻译表'), ('ads_phs_target_extend', '多靶点业务表'), ('ads_phs_disease', '适应症业务表'), ('ads_phs_dmp_endpoint', '终点指标检索大宽表'), ('ads_phs_da_cde_review_task_publicity', 'CDE审评任务公示业务表'), ('ads_phs_pub_entity_count', '实体 count 业务表'), ('ads_phs_kg_relationship_inc_daily', ''), ('ads_phs_drug_dev_status', '研发状态业务表'), ('ads_phs_dmp_mechanism', '作用机制大宽表')]
+2025-02-21 16:40:49,405 - utils.logger - INFO - Analyzed User Intent: content='{\n  "intent": "查找拥有最多生物类似药的原研药物，并返回该原研药物的ID",\n  "tables": ["ads_phs_drug"]\n}' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1395, 'prompt_tokens': 1296, 'total_tokens': 2691, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1344, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1152}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-45a673c8-8108-4f01-9d10-6cbadc56ecf2-0' usage_metadata={'input_tokens': 1296, 'output_tokens': 1395, 'total_tokens': 2691, 'input_token_details': {'audio': 0, 'cache_read': 1152}, 'output_token_details': {'audio': 0, 'reasoning': 1344}}
+2025-02-21 16:40:49,414 - utils.logger - INFO - User Intent: 查找拥有最多生物类似药的原研药物，并返回该原研药物的ID
+2025-02-21 16:40:49,415 - utils.logger - INFO - Related Tables: ['ads_phs_drug']
+2025-02-21 16:40:49,417 - utils.logger - INFO - Structure for table ads_phs_drug retrieved: 表名：ads_phs_drug
+表结构：CREATE TABLE `ads_phs_drug` (
+  `drug_id` varchar(32) NOT NULL COMMENT '药物 ID',
+  `docid` int(11) DEFAULT NULL COMMENT '数字主键',
+  `drug_name` json NOT NULL COMMENT '药物名称, List<Map>',
+  `alias` json DEFAULT NULL COMMENT '别名, List<Map>',
+  `dev_code` json DEFAULT NULL COMMENT '研发代码, List<Map>',
+  `trade_name` json DEFAULT NULL COMMENT '商品名, List<Map>',
+  `generic_name` json DEFAULT NULL COMMENT '通用名称, List<Map>',
+  `is_nme` tinyint(1) DEFAULT NULL COMMENT '是否NME, New molecular entity',
+  `is_first_in_class` tinyint(1) DEFAULT NULL COMMENT '是否First-in-class',
+  `is_qidp` tinyint(1) DEFAULT NULL COMMENT '是否 Qualified Infectious Disease Product 合格传染病产品资格',
+  `is_compound_medicine` tinyint(1) DEFAULT NULL COMMENT '是否复方',
+  `biological_drug_source` varchar(32) DEFAULT NULL COMMENT '生物药来源 dict_type= BIOLOGICAL_DRUG_SOURCE',
+  `express_system` varchar(32) DEFAULT NULL COMMENT '表达体系 dict_type=EXPRESS_SYSTEM',
+  `registered_classification_cn` varchar(32) DEFAULT NULL COMMENT '中国注册分类',
+  `null_target_reason` varchar(32) DEFAULT NULL COMMENT '无靶点原因 NOT_AVAILABLE/UNDEFINED',
+  `wiki_link` varchar(1500) DEFAULT NULL COMMENT 'wiki 地址',
+  `drugbank_id` json DEFAULT NULL COMMENT 'drugbank_id, List<String>',
+  `kegg_id` json DEFAULT NULL COMMENT 'kegg_id, List<String>',
+  `related_component` json DEFAULT NULL COMMENT '复方药的相关组分, List<String>',
+  `drug_type` json DEFAULT NULL COMMENT '药物类型, List<String>',
+  `originator_org_master_entity_id` json DEFAULT NULL COMMENT '原研机构, List<String>',
+  `mechanism_action_id` json DEFAULT NULL COMMENT '作用机制 ID, List<String>',
+  `target_id` json DEFAULT NULL COMMENT '靶点 id, List<String>',
+  `atc_code` json DEFAULT NULL COMMENT 'ATC 代码，WHO发布的药物分类系统, List<String>',
+  `antibody_drug_id` varchar(32) DEFAULT NULL COMMENT '抗体 ID',
+  `antibody_type` varchar(32) DEFAULT NULL COMMENT '抗体类型',
+  `linker_id` varchar(32) DEFAULT NULL COMMENT '连接子 id',
+  `linker_number` varchar(32) DEFAULT NULL COMMENT '连接子数量',
+  `payload_id` varchar(32) DEFAULT NULL COMMENT '载荷id',
+  `dar` json DEFAULT NULL COMMENT '药物抗体比',
+  `specific_site` tinyint(1) DEFAULT NULL COMMENT '是否定点偶联',
+  `site_id` varchar(32) DEFAULT NULL COMMENT '位点id',
+  `adc_reference` json DEFAULT NULL COMMENT 'ADC 参考信息',
+  `target_moiety_type` json DEFAULT NULL COMMENT '靶向药物类型',
+  `data_source` int(3) DEFAULT NULL COMMENT '数据来源',
+  `genetic_material` varchar(32) DEFAULT NULL COMMENT '遗传物质, dict_type = V_GENETIC_MATERIAL',
+  `delivery_system` json DEFAULT NULL COMMENT '递送系统, dict_type = V_DELIVERY_SYSTEM',
+  `targeted_tissue` json DEFAULT NULL COMMENT '靶向组织, dict_type = V_TARGETED_TISSUE',
+  `paired_region` json DEFAULT NULL COMMENT '识别区域, dict_type = V_PAIRED_REGION',
+  `regulation_type` json DEFAULT NULL COMMENT '调控机制, dict_type = V_REGULATION_TYPE',
+  `tech_platform` json DEFAULT NULL COMMENT '技术平台, dict_type = TECH_PLATFORM',
+  `source_info_xna` json DEFAULT NULL COMMENT '核酸药物来源信息',
+  `if_speculate` tinyint(1) DEFAULT NULL COMMENT '是否含有推测信息, 比如利用 WHO INN 推测药物结构',
+  `profile` json DEFAULT NULL COMMENT '描述',
+  `is_pathway` tinyint(1) DEFAULT NULL COMMENT '是否 pathway',
+  `special_review` json DEFAULT NULL COMMENT '特殊审评 List<String>',
+  `disease_id` json DEFAULT NULL COMMENT '适应症ID List<String>',
+  `active_org_master_entity_id` json DEFAULT NULL COMMENT '在研机构 List<String>',
+  `global_highest_dev_status` varchar(32) DEFAULT NULL COMMENT '全球最高研发状态',
+  `global_highest_dev_status_before_termination` varchar(32) DEFAULT NULL COMMENT '终止前全球最高研发状态',
+  `highest_dev_status_cn` varchar(32) DEFAULT NULL COMMENT '中国最高研发状态',
+  `highest_dev_status_before_termination_cn` varchar(32) DEFAULT NULL COMMENT '终止前中国最高研发状态',
+  `first_approved_date` bigint(20) DEFAULT NULL COMMENT '首批时间',
+  `first_approved_country` json DEFAULT NULL COMMENT '首批国家, List<String>',
+  `first_approved_indication` json DEFAULT NULL COMMENT '首批适应症, List<String>',
+  `research_disease` json DEFAULT NULL COMMENT '在研适应症, List<String>',
+  `non_research_disease` json DEFAULT NULL COMMENT '非在研适应症, List<String>',
+  `inactive_org_master_entity_id` json DEFAULT NULL COMMENT '非在研机构 ,List<String>',
+  `therapeutic_area` json DEFAULT NULL COMMENT '治疗领域, List<String>',
+  `approval_country` json DEFAULT NULL COMMENT '获批国家, List<String>',
+  `research_country` json DEFAULT NULL COMMENT '研发国家, List<String>',
+  `rnk` int(11) DEFAULT NULL COMMENT '同靶点药物排名',
+  `disease_phase` json DEFAULT NULL COMMENT '药物适应症 pahse, List<Map>',
+  `adc_count` int(11) DEFAULT NULL COMMENT 'adc 药物被关联的次数',
+  `target_extend_id` varchar(32) DEFAULT NULL COMMENT '多靶点表ID  生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  `has_leading_org_involved` tinyint(1) DEFAULT NULL COMMENT '是否有头部企业参与',
+  `created_ts` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间（数据库维护）',
+  `updated_ts` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间（数据库维护）',
+  `data_status` varchar(10) NOT NULL COMMENT '数据状态 DELETE/ACTIVE',
+  `original_drug_id` json DEFAULT NULL COMMENT '生物类似药',
+  `created_by` varchar(255) DEFAULT NULL,
+  `updated_by` varchar(255) DEFAULT NULL,
+  `deal_related_org` json DEFAULT NULL COMMENT '交易涉及机构',
+  `first_approved_date_cn` bigint(20) DEFAULT NULL COMMENT '中国首批时间',
+  `moiety_target_id` json DEFAULT NULL COMMENT '抗体靶点ID',
+  `payload_target_id` json DEFAULT NULL COMMENT '载荷靶点ID',
+  `moiety_mechanism_action_id` json DEFAULT NULL COMMENT '抗体作用机制ID',
+  `payload_mechanism_action_id` json DEFAULT NULL COMMENT '载荷作用机制D',
+  `moiety_target_extend_id` varchar(32) DEFAULT NULL COMMENT '抗体靶点对应的多靶点ID 生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  `payload_target_extend_id` varchar(32) DEFAULT NULL COMMENT '载荷靶点对应的多靶点ID 生成规则：多靶点表【items】集合正序排序后，通过UUID生成',
+  PRIMARY KEY (`drug_id`) /*T![clustered_index] CLUSTERED */,
+  UNIQUE KEY `docid` (`docid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='药物业务表'
+示例数据：[{'drug_id': '0000717d1e7143dc94fd46c1755cd8e3', 'is_qidp': 'false', 'global_highest_dev_status': 'c9e8fce7eb6b4bbd9cc66dc356017aab', 'is_first_in_class': 'false', 'non_research_disease': '["25aa9dbd25714b36b8bcb9347d1b91d1"]', 'originator_org_master_entity_id': '["da38a0196b9c470b09ba68c74f0e6d64"]', 'created_ts': '1677735049000', 'drug_type': '["1151dbc710f64a85923dc05d4a5a0ba9"]', 'data_status': 'ACTIVE', 'drug_name': '[{"lang": "EN", "name": "JM023", "status": "ACTIVE"}]', 'research_country': '[{"country": "5a365096-b2a6-31cb-acdf-1de1f5ab3abe", "dev_status": "c9e8fce7eb6b4bbd9cc66dc356017aab", "dev_status_time": {"time_trust_code": 7, "time_ts": 1669766400000}}]', 'created_by': 'data@patsnap.com', 'data_source': '10', 'updated_by': 'data@patsnap.com', 'dev_code': '[{"name": "AD20190509", "status": "ACTIVE"}]', 'is_pathway': 'false', 'disease_phase': '[{"disease_id": "25aa9dbd25714b36b8bcb9347d1b91d1", "highest_phase_cn": "c9e8fce7eb6b4bbd9cc66dc356017aab", "highest_phase_global": "c9e8fce7eb6b4bbd9cc66dc356017aab"}]', 'therapeutic_area': '["042cbe45c973477b957717ded29ef7b6"]', 'is_nme': 'false', 'updated_ts': '1735604387000', 'is_compound_medicine': 'false', 'docid': '36127', 'null_target_reason': 'UNDEFINED', 'highest_dev_status_cn': 'c9e8fce7eb6b4bbd9cc66dc356017aab', 'disease_id': '["25aa9dbd25714b36b8bcb9347d1b91d1"]', 'inactive_org_master_entity_id': '["da38a0196b9c470b09ba68c74f0e6d64"]'}]
+2025-02-21 16:41:00,041 - utils.logger - INFO - Generated SQL Response: content="SELECT \n  JSON_UNQUOTE(JSON_EXTRACT(original_drug_id, '$[0]')) AS original_drug_id,\n  COUNT(*) AS biosimilar_count\nFROM ads_phs_drug\nWHERE original_drug_id IS NOT NULL\nGROUP BY original_drug_id\nORDER BY biosimilar_count DESC\nLIMIT 1;" additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1231, 'prompt_tokens': 2813, 'total_tokens': 4044, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 1152, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 2688}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-db2702f1-1ac0-476b-87ff-0186673a377a-0' usage_metadata={'input_tokens': 2813, 'output_tokens': 1231, 'total_tokens': 4044, 'input_token_details': {'audio': 0, 'cache_read': 2688}, 'output_token_details': {'audio': 0, 'reasoning': 1152}}
+2025-02-21 16:41:00,044 - utils.logger - INFO - Generated SQL: SELECT    JSON_UNQUOTE(JSON_EXTRACT(original_drug_id, '$[0]')) AS original_drug_id,   COUNT(*) AS biosimilar_count FROM ads_phs_drug WHERE original_drug_id IS NOT NULL GROUP BY original_drug_id ORDER BY biosimilar_count DESC LIMIT 1;
+2025-02-21 16:41:00,045 - utils.logger - INFO - Executing query: SELECT    JSON_UNQUOTE(JSON_EXTRACT(original_drug_id, '$[0]')) AS original_drug_id,   COUNT(*) AS biosimilar_count FROM ads_phs_drug WHERE original_drug_id IS NOT NULL GROUP BY original_drug_id ORDER BY biosimilar_count DESC LIMIT 1;
+2025-02-21 16:43:58,060 - utils.logger - INFO - Summarized Result: content='以下是整理后的数据结果：\n\n-------------------------------------------\n原研药ID（original_drug_id）：68431d4745744d9e9e17a3073edd3920  \n相似药数量（biosimilar_count）：86\n-------------------------------------------' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 382, 'prompt_tokens': 73, 'total_tokens': 455, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': 0, 'reasoning_tokens': 320, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'o3-mini-2025-01-31', 'system_fingerprint': 'fp_ef58bd3122', 'finish_reason': 'stop', 'logprobs': None} id='run-a87f153b-edd8-4638-9b33-c428e83a0cea-0' usage_metadata={'input_tokens': 73, 'output_tokens': 382, 'total_tokens': 455, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 320}}
+2025-02-21 16:43:58,064 - utils.logger - INFO - Updated QA pairs with question: 帮我找出生物类似药最多的原研药物，返回原研药物ID
