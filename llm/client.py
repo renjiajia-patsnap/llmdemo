@@ -73,3 +73,10 @@ class LLMClient:
             api_key = config["api_key"],
             model = self.model_name,
         )
+
+if __name__ == '__main__':
+    # 创建一个 OpenAI 实例
+    openai = LLMClient(model_type="openai", model_name="gpt-3.5-turbo").get_model()
+    print(openai.get_response("你好"))
+
+

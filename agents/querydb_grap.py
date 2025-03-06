@@ -10,7 +10,7 @@ from utils.qapair import QAPairManager
 from llm.client import LLMClient
 from langchain.tools import tool
 from utils.logger import logger
-from langchain.agents import AgentExecutor
+from functools import lru_cache
 import json
 
 # 初始化数据缓存和 LLM
@@ -23,6 +23,7 @@ llm = LLMClient("openai",'o3-mini').get_model()
 qa_manager = QAPairManager(file_path='data/qa_pairs2.xlsx')
 
 # llm = LLMClient("tongyi").get_model()
+llm = LLMClient("deepseek").get_model()
 
 
 # Supporting Tools
@@ -78,11 +79,86 @@ def parse_llm_response(response: Any) -> Dict[str, Any]:
         logger.info(f"原始内容: {response_content}")
         return {"error": "无法解析LLM响应"}
 
+class QuestionSimilaritySearcher:
+    def __init__(self):
+        self.vector_store = None
+        self.processed_questions = set()
+        self._embeddings = embeddings  # 使用全局的 embeddings
+
+    def _initialize_vector_store(self, docs):
+        """初始化向量存储"""
+        if not docs:
+            return
+        self.vector_store = FAISS.from_documents(docs, self._embeddings)
+        self.processed_questions = {doc.page_content for doc in docs}
+
+    def _update_vector_store(self, new_docs):
+        """增量更新向量存储"""
+        if not new_docs:
+            return
+        new_docs_to_add = [doc for doc in new_docs
+                           if doc.page_content not in self.processed_questions]
+        if new_docs_to_add:
+            if self.vector_store is None:
+                self.vector_store = FAISS.from_documents(new_docs_to_add, self._embeddings)
+            else:
+                self.vector_store.add_documents(new_docs_to_add)
+            self.processed_questions.update(doc.page_content for doc in new_docs_to_add)
+
+    @staticmethod
+    def find_similar_question(input: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        根据输入问题查找相似的问题，使用缓存的向量存储并支持增量更新。
+        """
+        searcher = QuestionSimilaritySearcher._get_searcher()
+
+        logger.info("Finding similar question beginning>>>>>>>>>>>>>>>>>>>>>>>>")
+        logger.info("find_similar_question input: %s", input)
+
+        user_question = input.get("question", "")
+        docs = [Document(page_content=q, metadata=info)
+                for q, info in qa_manager.qa_pairs.items()]
+
+        if not docs:
+            return {"question": user_question, "answer": ""}
+
+        if searcher.vector_store is None:
+            searcher._initialize_vector_store(docs)
+        else:
+            searcher._update_vector_store(docs)
+
+        results = searcher.vector_store.similarity_search_with_score(user_question, k=1)
+        similar_score = 1 - results[0][1] if results else 0
+
+        if results and similar_score > 0.95:
+            logger.info("Found similar question: %s", results[0][0].page_content)
+            logger.info("Similarity score: %s", similar_score)
+            logger.info("Finding similar question end>>>>>>>>>>>>>>>>>>>>>>>>")
+            return {
+                "sql": results[0][0].metadata['sql'],
+                "answer": results[0][0].metadata['answer'],
+                "question": user_question
+            }
+
+        logger.info("No similar question found")
+        logger.info("Finding similar question end>>>>>>>>>>>>>>>>>>>>>>>>\n\n")
+        return {"question": user_question, "answer": ""}
+
+    @staticmethod
+    @lru_cache(maxsize=1)
+    def _get_searcher():
+        """单例模式获取 searcher 实例"""
+        return QuestionSimilaritySearcher()
 
 class AgentFactory:
     """代理创建工厂，封装代理逻辑"""
+
     @staticmethod
-    def find_similar_question(input:Dict[str, Any]) -> Dict[str, Any]:
+    def find_similar_question(input: Dict[str, Any]) -> Dict[str, Any]:
+        return QuestionSimilaritySearcher.find_similar_question(input)
+
+    @staticmethod
+    def find_similar_question_1(input:Dict[str, Any]) -> Dict[str, Any]:
         """
         根据输入问题查找相似的问题。
         """
@@ -334,7 +410,7 @@ def main():
     agent_factory = AgentFactory()
     workflow = Workflow(agent_factory)
 
-    question = "帮我查下药物索托拉西布都有哪些别名？"
+    question = "帮我找几条专利延长类型为PTE，并且关联的药物不为空，返回专利id及关联的药物ID，延长类型？"
     result = workflow.execute(question)
     print(f"Input: {question}")
     print(f"Result: {result}")
@@ -353,5 +429,5 @@ def workflow_with_stategraph_main():
 
 
 if __name__ == "__main__":
-    # main()
-    workflow_with_stategraph_main()
+    main()
+    #workflow_with_stategraph_main()
