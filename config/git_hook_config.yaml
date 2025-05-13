@@ -1,0 +1,62 @@
+# Git提交分析钩子配置文件
+
+# 模型设置
+model:
+  # 使用的模型类型: openai, tongyi, deepseek
+  type: openai
+  # 使用的模型名称
+  name: gpt-3.5-turbo
+  # 超时设置(秒)
+  timeout: 30
+
+# 分析设置
+analysis:
+  # 是否启用分析
+  enabled: true
+  # 分析级别：basic(基本), comprehensive(全面), security_focused(安全重点)
+  level: comprehensive
+  # 是否在分析中包含评分机制
+  include_rating: true
+  # 最大分析差异大小限制（字节），超过此值会截断
+  max_diff_size: 50000
+  # 提交消息最小长度要求
+  min_commit_message_length: 10
+
+# 行为设置
+behavior:
+  # 是否记录历史
+  save_history: true
+  # 是否遇到严重问题时阻止提交
+  block_on_critical: false
+  # 需要关注的特定文件模式（正则表达式）
+  critical_file_patterns:
+    - ".*password.*"
+    - ".*credential.*"
+    - ".*secret.*"
+    - ".*key\\.py$"
+  # 允许忽略的文件模式
+  ignored_file_patterns:
+    - ".*\\.md$"
+    - ".*\\.json$"
+    - ".*\\.log$"
+    - "^docs/.*"
+
+# 输出设置
+output:
+  # 是否使用颜色输出
+  colorize: true
+  # 是否包含emoji
+  use_emoji: true
+  # 输出详细程度: minimal, normal, verbose
+  verbosity: normal
+  # 是否显示提示和帮助信息
+  show_tips: true
+
+# 历史记录设置
+history:
+  # 历史记录文件路径（相对于项目根目录）
+  file_path: logs/commit_analysis.json
+  # 默认导出路径
+  export_path: logs/commit_analysis.md
+  # 最大保存记录数（0表示不限制）
+  max_records: 100 
