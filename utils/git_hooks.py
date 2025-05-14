@@ -194,7 +194,8 @@ class GitCommitAnalyzer:
                 commit_msg = temp_msg
             except Exception as e:
                 print(f"处理提交信息时出错: {str(e)}")
-        
+
+        print(commit_msg)
         return commit_msg
     
     def _get_staged_diff(self) -> str:

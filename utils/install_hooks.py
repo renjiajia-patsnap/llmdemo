@@ -100,8 +100,8 @@ def install_hooks():
     # 将项目根目录添加到PYTHONPATH
     export PYTHONPATH="$PROJECT_ROOT:$PYTHONPATH"
     
-    # 运行Python脚本进行分析
-    python "$PROJECT_ROOT/utils/git_hooks.py" "$@"
+    # 运行Python脚本进行分析，传递所有参数
+    python "$PROJECT_ROOT/utils/git_hooks.py" "$0" "$@"
     
     # 检查脚本返回值
     exit_code=$?
@@ -126,8 +126,8 @@ def install_hooks():
                             # 将项目根目录添加到PYTHONPATH
                             export PYTHONPATH="$PROJECT_ROOT:$PYTHONPATH"
                             
-                            # 运行Python脚本进行分析
-                            python "$PROJECT_ROOT/utils/git_hooks.py" "$@"
+                            # 运行Python脚本进行分析，传递所有参数
+                            python "$PROJECT_ROOT/utils/git_hooks.py" "$0" "$@"
                             
                             # 检查脚本返回值
                             exit_code=$?
@@ -220,6 +220,14 @@ def install_hooks():
     print("\n🎉 Git钩子安装完成！")
     print("现在，每次提交前都会自动运行代码分析。")
     print("如需配置或禁用钩子，请编辑config/git_hook_config.yaml文件。")
+    print("\n如需临时跳过钩子检查，可使用以下方法：")
+    print("1. 提交时添加--no-verify参数：git commit -m \"提交信息\" --no-verify")
+    print("2. 设置环境变量：SKIP_GIT_HOOKS=1 git commit -m \"提交信息\"")
+    print("3. 或者使用--skip-hooks参数：git commit -m \"提交信息\" --skip-hooks")
+    print("\n如果只想跳过AI分析（仅进行基本检查）：")
+    print("1. 使用--no-ai参数：git commit -m \"提交信息\" --no-ai")
+    print("2. 设置环境变量：DISABLE_GIT_AI=1 git commit -m \"提交信息\"")
+    print("\n在Windows环境中，如果遇到编码问题，建议使用上述选项之一。")
 
 if __name__ == "__main__":
     install_hooks() 
