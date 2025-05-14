@@ -16,7 +16,10 @@ from datetime import datetime
 import openai
 from pathlib import Path
 from colorama import Fore, Style, init
+from dotenv import load_dotenv
+from llm.client import LLMClient
 
+load_dotenv()
 # 初始化colorama
 init()
 
@@ -245,58 +248,52 @@ class GitCommitAnalyzer:
         {f"5. 评分：给这次提交评分(1-10分)" if include_rating else ""}
         
         以JSON格式返回结果，包含以下字段：summary, quality, issues, suggestions, {"rating, " if include_rating else ""}analysis_level
+        注意：suggestions如果存在多条则以数组形式返回 ["suggestion1"，“suggestion2”]
         """
         
         try:
-            # 根据模型类型调用不同的API
-            if model_type == "openai":
-                response = openai.ChatCompletion.create(
-                    model=model_name,
-                    messages=[
-                        {"role": "system", "content": system_message},
-                        {"role": "user", "content": prompt}
-                    ],
-                    temperature=0.3,
-                    timeout=timeout
-                )
-                
-                # 获取响应内容
-                content = response.choices[0].message.content
-                
-                # 尝试解析JSON响应
-                try:
-                    # 提取JSON部分
-                    json_match = re.search(r'```(?:json)?\s*({.*?})\s*```', content, re.DOTALL)
-                    if json_match:
-                        result = json.loads(json_match.group(1))
-                    else:
-                        result = json.loads(content)
-                    
-                    # 添加原始响应
-                    result["raw_response"] = content
-                    return result
-                except json.JSONDecodeError:
-                    # 如果无法解析JSON，则返回原始响应
-                    return {
-                        "summary": "无法解析AI响应",
-                        "quality": "解析失败",
-                        "issues": ["AI返回的响应不是有效的JSON格式"],
-                        "suggestions": ["请重试或调整提示词"],
-                        "raw_response": content,
-                        "analysis_level": analysis_level
-                    }
-            
-            # 其他模型类型可以在这里添加
-            
-            else:
+            llm = LLMClient(model_type = model_type, model_name = model_name).get_model()
+            # # 根据模型类型调用不同的API
+            # if model_type == "openai":
+            #     response = openai.ChatCompletion.create(
+            #         model=model_name,
+            #         messages=[
+            #             {"role": "system", "content": system_message},
+            #             {"role": "user", "content": prompt}
+            #         ],
+            #         temperature=0.3,
+            #         timeout=timeout
+            #     )
+            #
+            #     # 获取响应内容
+            messages = [
+                            {"role": "system", "content": system_message},
+                            {"role": "user", "content": prompt}
+                        ]
+            response = llm.invoke(messages)
+            content = response.content
+
+            try:
+                # 提取JSON部分
+                json_match = re.search(r'```(?:json)?\s*({.*?})\s*```', content, re.DOTALL)
+                if json_match:
+                    result = json.loads(json_match.group(1))
+                else:
+                    result = json.loads(content)
+
+                # 添加原始响应
+                result["raw_response"] = content
+                return result
+            except json.JSONDecodeError:
+                # 如果无法解析JSON，则返回原始响应
                 return {
-                    "summary": f"不支持的模型类型: {model_type}",
-                    "quality": "分析失败",
-                    "issues": [f"不支持的模型类型: {model_type}"],
-                    "suggestions": ["配置支持的模型类型"],
+                    "summary": "无法解析AI响应",
+                    "quality": "解析失败",
+                    "issues": ["AI返回的响应不是有效的JSON格式"],
+                    "suggestions": ["请重试或调整提示词"],
+                    "raw_response": content,
                     "analysis_level": analysis_level
                 }
-                
         except Exception as e:
             self._print_error(f"AI分析失败: {str(e)}")
             return {
@@ -495,8 +492,9 @@ class GitCommitAnalyzer:
             suggestions = result.get("suggestions", [])
             if suggestions:
                 self._print_colored("改进建议:", Fore.CYAN)
-                for suggestion in suggestions:
-                    self._print_info(f"- {suggestion}")
+                # 将所有建议合并为一个字符串显示
+                combined_suggestions = "; ".join(suggestions)
+                self._print_info(f"{combined_suggestions}")
                 print()
             
             # 详细模式下显示更多信息
