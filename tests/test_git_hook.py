@@ -17,6 +17,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.dirname(current_dir)
 sys.path.append(root_dir)
 
+
+# 这个是测试的提示消息
 # 导入要测试的模块
 from utils.git_hooks import GitCommitAnalyzer
 
@@ -184,8 +186,8 @@ class TestGitCommitAnalyzer:
         # 验证结果
         assert result is True  # 不应该阻止提交
     
-    def test_combined_suggestions_display(self, analyzer, capsys):
-        """测试合并建议显示"""
+    def test_suggestions_display(self, analyzer, capsys):
+        """测试建议显示方式"""
         # 设置多条建议
         mock_result = MOCK_ANALYSIS_RESULT.copy()
         mock_result["suggestions"] = [
@@ -201,8 +203,10 @@ class TestGitCommitAnalyzer:
         # 获取输出内容
         captured = capsys.readouterr()
         
-        # 验证输出中包含合并的建议
-        assert "考虑增加更多函数文档注释; 使用类型提示; 添加单元测试" in captured.out
+        # 验证输出中包含每一条单独的建议
+        assert "- 考虑增加更多函数文档注释" in captured.out
+        assert "- 使用类型提示" in captured.out
+        assert "- 添加单元测试" in captured.out
     
     def test_save_history(self, analyzer, tmpdir):
         """测试保存历史记录"""
