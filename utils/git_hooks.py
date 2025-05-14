@@ -17,11 +17,51 @@ import openai
 from pathlib import Path
 from colorama import Fore, Style, init
 from dotenv import load_dotenv
+
+# 添加项目根目录到Python路径
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir)  # 项目根目录
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+# 导入LLM客户端
 from llm.client import LLMClient
 
 load_dotenv()
-# 初始化colorama
-init()
+# 初始化colorama，设置strip=False以防止表情符号输出问题
+init(strip=False)
+# 解决Windows下的编码问题
+if sys.platform == 'win32':
+    os.system('chcp 65001 > nul')
+    # Windows环境下使用英文输出，避免中文编码问题
+    USE_ENGLISH = True
+else:
+    USE_ENGLISH = False
+
+# 中英文消息映射
+MSG = {
+    "git_analysis": "Git Commit Analysis" if USE_ENGLISH else "Git提交分析",
+    "commit_analysis_disabled": "Commit analysis is disabled" if USE_ENGLISH else "提交分析功能已禁用",
+    "commit_msg_short": "Commit message too short (min: {}, current: {})" if USE_ENGLISH else "提交信息过短（最小长度: {}，当前长度: {}）",
+    "no_staged_files": "No staged files" if USE_ENGLISH else "没有暂存的文件",
+    "sensitive_files": "Detected sensitive files" if USE_ENGLISH else "检测到可能的敏感文件",
+    "no_diff": "Failed to get staged diff" if USE_ENGLISH else "无法获取暂存区差异",
+    "analyzing": "Analyzing commit..." if USE_ENGLISH else "正在分析提交内容...",
+    "analysis_result": "Analysis Result" if USE_ENGLISH else "提交分析结果",
+    "overview": "Overview" if USE_ENGLISH else "概述",
+    "no_overview": "No overview" if USE_ENGLISH else "无概述",
+    "quality": "Quality" if USE_ENGLISH else "质量评估",
+    "no_quality": "No quality assessment" if USE_ENGLISH else "无评估",
+    "rating": "Rating" if USE_ENGLISH else "评分",
+    "potential_issues": "Potential Issues" if USE_ENGLISH else "潜在问题",
+    "no_issues": "No potential issues found" if USE_ENGLISH else "未发现潜在问题",
+    "suggestions": "Suggestions" if USE_ENGLISH else "改进建议",
+    "ai_response": "AI Raw Response" if USE_ENGLISH else "AI原始响应",
+    "tips": "Note: This is an AI-assisted code analysis for reference only. Always perform manual review." if USE_ENGLISH else "提示: 这是由AI辅助的代码分析，仅供参考。请始终进行人工审查。",
+    "block_sensitive": "Commit blocked due to sensitive files" if USE_ENGLISH else "由于存在敏感文件，提交被阻止",
+    "block_low_rating": "Commit blocked due to low rating" if USE_ENGLISH else "由于评分过低，提交被阻止",
+    "low_rating": "Commit rating is low, consider improvements" if USE_ENGLISH else "提交评分较低，请考虑改进"
+}
 
 class GitCommitAnalyzer:
     """Git提交分析器，用于检查和分析提交内容"""
@@ -127,12 +167,35 @@ class GitCommitAnalyzer:
             提交信息
         """
         commit_msg_file = sys.argv[1] if len(sys.argv) > 1 else ".git/COMMIT_EDITMSG"
-        try:
-            with open(commit_msg_file, 'r', encoding='utf-8') as f:
-                return f.read().strip()
-        except Exception as e:
-            self._print_error(f"读取提交信息失败: {str(e)}")
-            return ""
+        
+        # 尝试不同的编码读取提交信息
+        encodings_to_try = ['utf-8', 'gbk', 'latin-1', 'utf-16', 'cp1252']
+        commit_msg = ""
+        
+        for encoding in encodings_to_try:
+            try:
+                with open(commit_msg_file, 'r', encoding=encoding) as f:
+                    commit_msg = f.read().strip()
+                print(f"成功使用 {encoding} 编码读取提交信息")
+                break
+            except UnicodeDecodeError:
+                print(f"尝试以 {encoding} 编码读取提交信息失败")
+                continue
+            except Exception as e:
+                self._print_error(f"读取提交信息失败: {str(e)}")
+                return ""
+        
+        # 如果是Windows环境，确保所有文本都是ASCII可表示的
+        if sys.platform == 'win32':
+            # 将非ASCII字符替换为英文描述
+            try:
+                temp_msg = commit_msg.encode('ascii', errors='xmlcharrefreplace').decode('ascii')
+                print(f"原始信息长度: {len(commit_msg)}, 处理后长度: {len(temp_msg)}")
+                commit_msg = temp_msg
+            except Exception as e:
+                print(f"处理提交信息时出错: {str(e)}")
+        
+        return commit_msg
     
     def _get_staged_diff(self) -> str:
         """获取暂存区的差异
@@ -141,11 +204,39 @@ class GitCommitAnalyzer:
             差异文本
         """
         try:
-            diff = subprocess.check_output(
-                ["git", "diff", "--staged", "--unified=3"],
-                stderr=subprocess.STDOUT,
-                universal_newlines=True
-            )
+            # 尝试使用utf-8编码获取差异
+            try:
+                diff = subprocess.check_output(
+                    ["git", "diff", "--staged", "--unified=3"],
+                    stderr=subprocess.STDOUT,
+                    universal_newlines=True,
+                    encoding='utf-8'
+                )
+                print("成功使用utf-8编码获取差异")
+            except UnicodeDecodeError:
+                # 如果utf-8失败，尝试使用二进制模式获取，然后使用多种编码尝试解码
+                print("使用utf-8编码获取差异失败，尝试二进制模式")
+                diff_binary = subprocess.check_output(
+                    ["git", "diff", "--staged", "--unified=3"],
+                    stderr=subprocess.STDOUT
+                )
+                
+                # 尝试多种编码
+                encodings_to_try = ['latin-1', 'cp1252', 'gbk', 'utf-16']
+                diff = ""
+                for encoding in encodings_to_try:
+                    try:
+                        diff = diff_binary.decode(encoding)
+                        print(f"成功使用{encoding}编码解码差异")
+                        break
+                    except UnicodeDecodeError:
+                        print(f"使用{encoding}编码解码差异失败")
+                        continue
+                
+                # 如果所有编码都失败，使用latin-1强制解码（不会抛出UnicodeDecodeError）
+                if not diff:
+                    diff = diff_binary.decode('latin-1', errors='replace')
+                    print("使用latin-1强制解码差异")
             
             # 截断过大的差异
             max_diff_size = self.config.get("analysis", {}).get("max_diff_size", 50000)
@@ -164,11 +255,40 @@ class GitCommitAnalyzer:
             文件路径列表
         """
         try:
-            output = subprocess.check_output(
-                ["git", "diff", "--staged", "--name-only"],
-                stderr=subprocess.STDOUT,
-                universal_newlines=True
-            )
+            # 尝试使用utf-8编码获取文件列表
+            try:
+                output = subprocess.check_output(
+                    ["git", "diff", "--staged", "--name-only"],
+                    stderr=subprocess.STDOUT,
+                    universal_newlines=True,
+                    encoding='utf-8'
+                )
+                print("成功使用utf-8编码获取暂存文件列表")
+            except UnicodeDecodeError:
+                # 如果utf-8失败，尝试使用二进制模式获取，然后使用多种编码尝试解码
+                print("使用utf-8编码获取暂存文件列表失败，尝试二进制模式")
+                output_binary = subprocess.check_output(
+                    ["git", "diff", "--staged", "--name-only"],
+                    stderr=subprocess.STDOUT
+                )
+                
+                # 尝试多种编码
+                encodings_to_try = ['latin-1', 'cp1252', 'gbk', 'utf-16']
+                output = ""
+                for encoding in encodings_to_try:
+                    try:
+                        output = output_binary.decode(encoding)
+                        print(f"成功使用{encoding}编码解码暂存文件列表")
+                        break
+                    except UnicodeDecodeError:
+                        print(f"使用{encoding}编码解码暂存文件列表失败")
+                        continue
+                
+                # 如果所有编码都失败，使用latin-1强制解码（不会抛出UnicodeDecodeError）
+                if not output:
+                    output = output_binary.decode('latin-1', errors='replace')
+                    print("使用latin-1强制解码暂存文件列表")
+            
             return [file for file in output.strip().split('\n') if file]
         except Exception as e:
             self._print_error(f"获取暂存文件列表失败: {str(e)}")
@@ -248,24 +368,11 @@ class GitCommitAnalyzer:
         {f"5. 评分：给这次提交评分(1-10分)" if include_rating else ""}
         
         以JSON格式返回结果，包含以下字段：summary, quality, issues, suggestions, {"rating, " if include_rating else ""}analysis_level
-        注意：suggestions如果存在多条则以数组形式返回 ["suggestion1"，“suggestion2”]
+        注意：suggestions如果存在多条则以数组形式返回 ["suggestion1"，"suggestion2"]
         """
         
         try:
             llm = LLMClient(model_type = model_type, model_name = model_name).get_model()
-            # # 根据模型类型调用不同的API
-            # if model_type == "openai":
-            #     response = openai.ChatCompletion.create(
-            #         model=model_name,
-            #         messages=[
-            #             {"role": "system", "content": system_message},
-            #             {"role": "user", "content": prompt}
-            #         ],
-            #         temperature=0.3,
-            #         timeout=timeout
-            #     )
-            #
-            #     # 获取响应内容
             messages = [
                             {"role": "system", "content": system_message},
                             {"role": "user", "content": prompt}
@@ -388,7 +495,9 @@ class GitCommitAnalyzer:
             color: 颜色代码
             emoji: 表情符号
         """
-        prefix = emoji + " " if emoji and self.use_emoji else ""
+        # 在Windows环境下，避免使用表情符号
+        use_emoji = emoji and self.use_emoji and not (sys.platform == 'win32')
+        prefix = emoji + " " if use_emoji else ""
         
         if self.colorize and color:
             print(f"{prefix}{color}{text}{Style.RESET_ALL}")
@@ -401,7 +510,7 @@ class GitCommitAnalyzer:
         Args:
             text: 信息文本
         """
-        self._print_colored(text, Fore.CYAN, "ℹ️")
+        self._print_colored(text, Fore.CYAN, "i" if sys.platform == 'win32' else "ℹ️")
     
     def _print_success(self, text: str) -> None:
         """打印成功信息
@@ -409,7 +518,7 @@ class GitCommitAnalyzer:
         Args:
             text: 成功信息文本
         """
-        self._print_colored(text, Fore.GREEN, "✅")
+        self._print_colored(text, Fore.GREEN, "√" if sys.platform == 'win32' else "✅")
     
     def _print_warning(self, text: str) -> None:
         """打印警告信息
@@ -417,7 +526,7 @@ class GitCommitAnalyzer:
         Args:
             text: 警告信息文本
         """
-        self._print_colored(text, Fore.YELLOW, "⚠️")
+        self._print_colored(text, Fore.YELLOW, "!" if sys.platform == 'win32' else "⚠️")
     
     def _print_error(self, text: str) -> None:
         """打印错误信息
@@ -425,7 +534,7 @@ class GitCommitAnalyzer:
         Args:
             text: 错误信息文本
         """
-        self._print_colored(text, Fore.RED, "❌")
+        self._print_colored(text, Fore.RED, "x" if sys.platform == 'win32' else "❌")
     
     def _print_header(self, text: str) -> None:
         """打印标题
@@ -433,7 +542,7 @@ class GitCommitAnalyzer:
         Args:
             text: 标题文本
         """
-        self._print_colored(f"\n=== {text} ===", Fore.CYAN, "🔍")
+        self._print_colored(f"\n=== {text} ===", Fore.CYAN, "*" if sys.platform == 'win32' else "🔍")
     
     def _display_analysis_result(self, result: Dict) -> None:
         """显示分析结果
@@ -446,66 +555,67 @@ class GitCommitAnalyzer:
             # 最小化输出
             if "rating" in result:
                 rating = result.get("rating", "N/A")
-                self._print_info(f"提交评分: {rating}/10")
+                self._print_info(f"{MSG['rating']}: {rating}/10")
             
             # 只显示问题和建议的数量
             issues_count = len(result.get("issues", []))
             if issues_count > 0:
-                self._print_warning(f"发现 {issues_count} 个潜在问题")
+                self._print_warning(f"{MSG['potential_issues']}: {issues_count}")
             else:
-                self._print_success("未发现潜在问题")
+                self._print_success(MSG["no_issues"])
         
         else:
             # 正常或详细输出
-            self._print_header("提交分析结果")
+            self._print_header(MSG["analysis_result"])
             
             # 概述
-            self._print_colored("概述:", Fore.CYAN)
-            self._print_colored(result.get("summary", "无概述"), None)
+            self._print_colored(f"{MSG['overview']}:", Fore.CYAN)
+            self._print_colored(result.get("summary", MSG["no_overview"]), None)
             print()
             
             # 质量评估
-            self._print_colored("质量评估:", Fore.CYAN)
-            self._print_colored(result.get("quality", "无评估"), None)
+            self._print_colored(f"{MSG['quality']}:", Fore.CYAN)
+            self._print_colored(result.get("quality", MSG["no_quality"]), None)
             print()
             
             # 评分（如果存在）
             if "rating" in result:
                 rating = result.get("rating", "N/A")
                 rating_color = Fore.GREEN if rating >= 7 else (Fore.YELLOW if rating >= 4 else Fore.RED)
-                self._print_colored("评分:", Fore.CYAN)
+                self._print_colored(f"{MSG['rating']}:", Fore.CYAN)
                 self._print_colored(f"{rating}/10", rating_color)
                 print()
             
             # 潜在问题
             issues = result.get("issues", [])
             if issues:
-                self._print_colored("潜在问题:", Fore.YELLOW)
+                self._print_colored(f"{MSG['potential_issues']}:", Fore.YELLOW)
                 for issue in issues:
                     self._print_warning(f"- {issue}")
                 print()
             else:
-                self._print_success("未发现潜在问题")
+                self._print_success(MSG["no_issues"])
                 print()
             
             # 改进建议
             suggestions = result.get("suggestions", [])
             if suggestions:
-                self._print_colored("改进建议:", Fore.CYAN)
-                # 将所有建议合并为一个字符串显示
-                combined_suggestions = "; ".join(suggestions)
-                self._print_info(f"{combined_suggestions}")
+                self._print_colored(f"{MSG['suggestions']}:", Fore.CYAN)
+                # 将每条建议单独一行显示
+                for suggestion in suggestions:
+                    self._print_info(f"- {suggestion}")
                 print()
             
             # 详细模式下显示更多信息
             if self.verbosity == "verbose" and "raw_response" in result:
-                self._print_header("AI原始响应")
+                self._print_header(MSG["ai_response"])
                 print(result["raw_response"])
                 print()
         
         # 显示提示（如果启用）
         if self.show_tips:
-            self._print_colored("\n提示: 这是由AI辅助的代码分析，仅供参考。请始终进行人工审查。", Fore.CYAN, "💡")
+            self._print_colored(f"\n{MSG['tips']}", Fore.CYAN, 
+                               ">" if sys.platform == 'win32' else "💡")
     
     def analyze(self) -> bool:
         """分析当前的提交
@@ -514,42 +624,42 @@ class GitCommitAnalyzer:
             分析结果，True表示通过检查，False表示未通过
         """
         if not self.enabled:
-            self._print_info("提交分析功能已禁用")
+            self._print_info(MSG["commit_analysis_disabled"])
             return True
         
         # 输出标题
-        self._print_header("Git提交分析")
+        self._print_header(MSG["git_analysis"])
         
         # 获取提交信息
         commit_msg = self._get_commit_message()
-        
+        print(commit_msg)
         # 检查提交信息长度
         min_length = self.config.get("analysis", {}).get("min_commit_message_length", 10)
         if len(commit_msg) < min_length:
-            self._print_error(f"提交信息过短（最小长度: {min_length}，当前长度: {len(commit_msg)}）")
+            self._print_error(MSG["commit_msg_short"].format(min_length, len(commit_msg)))
             return False
         
         # 获取暂存文件列表
         staged_files = self._get_staged_files()
         if not staged_files:
-            self._print_error("没有暂存的文件")
+            self._print_error(MSG["no_staged_files"])
             return False
         
         # 检查关键文件
         critical_files = self._check_critical_files(staged_files)
         if critical_files:
-            self._print_warning("检测到可能的敏感文件:")
+            self._print_warning(MSG["sensitive_files"])
             for file in critical_files:
                 self._print_warning(f"- {file}")
         
         # 获取差异
         diff = self._get_staged_diff()
         if not diff:
-            self._print_error("无法获取暂存区差异")
+            self._print_error(MSG["no_diff"])
             return False
         
         # 使用AI分析提交
-        self._print_info("正在分析提交内容...")
+        self._print_info(MSG["analyzing"])
         result = self._analyze_with_ai(commit_msg, diff)
         
         # 保存到历史记录
@@ -561,22 +671,43 @@ class GitCommitAnalyzer:
         
         # 检查是否有严重问题需要阻止提交
         if self.block_on_critical and critical_files:
-            self._print_error("由于存在敏感文件，提交被阻止")
+            self._print_error(MSG["block_sensitive"])
             return False
         
         # 检查分析结果中的评分（如果有）
         if "rating" in result and result.get("rating", 0) < 3:
             if self.block_on_critical:
-                self._print_error("由于评分过低，提交被阻止")
+                self._print_error(MSG["block_low_rating"])
                 return False
             else:
-                self._print_warning("提交评分较低，请考虑改进")
+                self._print_warning(MSG["low_rating"])
         
         return True
 
 
 def main():
     """主函数，用于从命令行运行"""
+    # 检查是否通过环境变量或参数禁用钩子
+    if 'SKIP_GIT_HOOKS' in os.environ or '--skip-hooks' in sys.argv or '--no-verify' in sys.argv:
+        print("警告: Git钩子检查已被跳过")
+        sys.exit(0)
+    
+    # 检查钩子类型
+    hook_type = os.path.basename(sys.argv[0]) if len(sys.argv) > 0 else "unknown"
+    
+    # 如果输入参数包含--help或-h，显示帮助信息
+    if '--help' in sys.argv or '-h' in sys.argv:
+        print(f"Git钩子: {hook_type}")
+        print("用法: git commit [选项]")
+        print("")
+        print("可用选项:")
+        print("  --skip-hooks, --no-verify  跳过钩子检查")
+        print("  --help, -h                 显示此帮助信息")
+        print("")
+        print("环境变量:")
+        print("  SKIP_GIT_HOOKS=1           设置此环境变量可跳过钩子检查")
+        sys.exit(0)
+    
     analyzer = GitCommitAnalyzer()
     result = analyzer.analyze()
     
