@@ -17,6 +17,7 @@ import openai
 from pathlib import Path
 from colorama import Fore, Style, init
 from dotenv import load_dotenv
+import io
 
 # 添加项目根目录到Python路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -29,11 +30,12 @@ from llm.client import LLMClient
 
 load_dotenv()
 # 初始化colorama，设置strip=False以防止表情符号输出问题
-init(strip=False)
+init(autoreset=True, convert=True)
+# 修改为更可靠的方式设置控制台编码
+if sys.platform == 'win32':
+    os.system('chcp 65001')  # 移除 > nul，确保命令执行
 # 解决Windows下的编码问题
 if sys.platform == 'win32':
-    os.system('chcp 65001 > nul')
-    # Windows环境下使用英文输出，避免中文编码问题
     USE_ENGLISH = True
 else:
     USE_ENGLISH = False
@@ -62,6 +64,14 @@ MSG = {
     "block_low_rating": "Commit blocked due to low rating" if USE_ENGLISH else "由于评分过低，提交被阻止",
     "low_rating": "Commit rating is low, consider improvements" if USE_ENGLISH else "提交评分较低，请考虑改进"
 }
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+# 处理输出文本
+def safe_encode(text):
+    if isinstance(text, str):
+        return text.encode('utf-8', errors='replace').decode('utf-8')
+    return str(text)
 
 class GitCommitAnalyzer:
     """Git提交分析器，用于检查和分析提交内容"""
