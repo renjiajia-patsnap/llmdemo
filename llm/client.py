@@ -26,7 +26,7 @@ class LLMClient:
         "openai": {
             "base_url": os.getenv('openai_base_url'),
             "api_key": os.getenv('openai_api_key'),
-            "supported_models": ["gpt-3.5-turbo", "gpt-4","o3-mini"],  # OpenAI 支持的模型
+            "supported_models": ["gpt-3.5-turbo", "gpt-4","gpt-4o","o3-mini"],  # OpenAI 支持的模型
         },
     }
 
